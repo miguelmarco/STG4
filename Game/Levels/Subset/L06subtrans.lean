@@ -2,34 +2,32 @@ import Game.Levels.Subset.L05subref
 
 variable {U : Type}
 
-World "Subset"
+World "Subconjunto"
 Level 6
-Title "Subset is transitive"
+Title "La relación de contenido es transitiva"
 
 Introduction
 "
-To start a proof, you should look first at the goal.
-What needs to be done to prove the goal?
-In this level, the goal is `A ⊆ C`.  What does that
-tell you about how to proceed?
+Para empezar una demostración, empieza mirando el objetivo.
+¿Qué necesitas hacer para demostrar el objetivo?
+En este nivel, el objetivo es `A ⊆ C`.  ¿Qué te dice eso sobre los pasos a dar?"
+
+LemmaTab "Teoría de conjuntos"
+
+LemmaDoc sub_trans as "sub_trans" in "Teoría de conjuntos"
+"
+Si tenemos `h1 : A ⊆ B` y `h2 : B ⊆ C`, entonces `sub_trans h1 h2` es una prueba de `A ⊆ C`.
 "
 
-LemmaTab "Set Theory"
-
-LemmaDoc sub_trans as "sub_trans" in "Set Theory"
-"
-If you have `h1 : A ⊆ B` and `h2 : B ⊆ C`, then `sub_trans h1 h2` is a proof of `A ⊆ C`.
-"
-
-/-- Suppose $A \subseteq B$ and $B \subseteq C$.  Then $A \subseteq C$. -/
+/--Sea $A \subseteq B$ y $B \subseteq C$.  Entonces $A \subseteq C$. -/
 Statement sub_trans {A B C : Set U}
     (h1 : A ⊆ B) (h2 : B ⊆ C) : A ⊆ C := by
-  Hint (hidden := true) "To get started, you'll need to introduce first
-  an object `x` and then the assumption that `x ∈ A`."
+  Hint (hidden := true) "Para empezar, hay que introducir un objeto `x` y la
+  hiótesis de que `x ∈ A`."
   intro x h3
-  Hint "Does your situation now remind you of a previous level?"
-  Hint (hidden := true) "First use `have` to assert that `{x} ∈ B`, and
-  then prove `{x} ∈ C`."
+  Hint "¿Te recuerda esta situación al nivel anterior?"
+  Hint (hidden := true) "Usa `have` para afirmar que `{x} ∈ B`, y
+  después demuestra `{x} ∈ C`."
   have h4 : x ∈ B := h1 h3
   exact h2 h4
 
@@ -37,6 +35,6 @@ NewLemma sub_trans
 
 Conclusion
 "
-The theorem you have proven in this level shows that the subset relation has
-a property called *transitivity*.  We have given the theorem the name `sub_trans`.
+El teorema que has demostrado en este nivel dice que la relación de contenido tiene
+una propiedad llamada *transitividad*. Hemos llamado a este teorema `sub_trans`.
 "

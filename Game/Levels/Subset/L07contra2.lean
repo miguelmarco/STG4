@@ -2,33 +2,33 @@ import Game.Levels.Subset.L06contra
 
 variable {U : Type}
 
-World "Subset"
+World "Subconjunto"
 Level 7
-Title "More on proof by contradiction"
+Title "Demostración por reducción al absurdo"
 
 Introduction
 "
-Once again you have a goal that starts with `¬`, so proof by contradiction
-seems like a good idea.
+Si tenemos un objetivo que empieza por `¬`, una prueba por reducción al absurdo
+parece una buena idea.
 "
 
-LemmaTab "Set Theory"
+LemmaTab "Teoría de conjuntos"
 
-/-- Suppose $A \subseteq B$ and $\neg A \subseteq C$.  Then $\neg B \subseteq C$. -/
+/-- supón que $A \subseteq B$ y $\neg A \subseteq C$.  Entonces $\neg B \subseteq C$. -/
 Statement {A B C : Set U} (h1 : A ⊆ B) (h2 : ¬A ⊆ C) : ¬B ⊆ C := by
   by_contra h3
-  Hint "You already proved the theorem `sub_trans`, which says that if `A ⊆ B` and
-  `B ⊆ C`, then `A ⊆ C`.  (Click on `sub_trans` in the list of theorems on the right
-  to see what the theorem says.)  Since you now have `h1 : A ⊆ B` and `{h3} : B ⊆ C`, Lean
-  will recognize `sub_trans h1 {h3}` as a proof of `A ⊆ C`.  Recall that you can
-  enter the symbol `⊆` by typing `\\sub`."
-  Hint (hidden := true) "Try `have h4 : A ⊆ C := sub_trans h1 {h3}`."
+  Hint "Ya hemos demostrado el teorema `sub_trans`, que dice que si `A ⊆ B` y
+  `B ⊆ C`, entonces `A ⊆ C`.  (Pulsa en `sub_trans` en la lista de teoremas de la derecha
+  para ver qué dice el teorema). Como sabemos que `h1 : A ⊆ B` y `{h3} : B ⊆ C`, Lean
+  reconoce `sub_trans h1 {h3}` como una prueba de que `A ⊆ C`.  Recuerda que puedes
+  introducir el símbolo `⊆` tecleando `\\sub`."
+  Hint (hidden := true) "Intenta `have h4 : A ⊆ C := sub_trans h1 {h3}`."
   have h4 : A ⊆ C := sub_trans h1 h3
-  Hint "Now you have contradictory assumptions."
-  Hint (hidden := true) "`h2` and `{h4}` give the required contradiction."
+  Hint "Ahora tienes suposiciones contradictorias."
+  Hint (hidden := true) "`h2` y `{h4}` dan la contradicción necesaria."
   exact h2 h4
 
 Conclusion
 "
-Congratulations on completing Subset World!
+¡Enhorabuena por completar el mundo de los subconjuntos!
 "

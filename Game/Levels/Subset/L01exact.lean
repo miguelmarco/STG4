@@ -5,65 +5,65 @@ import Mathlib.Data.Set.Lattice
 
 variable {U : Type}
 
-World "Subset"
+World "Subconjunto"
 Level 1
-Title "The exact tactic"
+Title "La táctica exact"
 
 Introduction
 "
-# Read this first
+# Empieza leyendo esto
 
-Each level in this game involves proving a mathematical statement (the \"Goal\").
-When you give a proof of this statement that
-is accepted by Lean, we say that you have *closed* the goal.
+Cada nivel en este juego implica demostrar una afirmación matemática (el \"Objetivo\").
+Cuando presentas una prueba de esta afirmación que
+es aceptada por Lean, decimos que has *cerrado* el objetivo.
 
-In this first level you're going to prove that if `x` belongs to the universe `U`,
-`A` is a set of objects from `U`, and `x ∈ A`, then `x ∈ A`.  You should see
-`U : Type`, `x : U`, and `A : Set U` under *Objects* in the pane to the right, and
-`h : x ∈ A` under *Assumptions*.  The letter `h` here is called an *identifier*
-for the assumption `x ∈ A`.
+En este primer nivel, vas a demostrar que si `x` pertenece al universo `U`,
+`A` es un conjunto de objetos de `U`, y `x ∈ A`, entonces `x ∈ A`. Deberías ver
+`U : Type`, `x : U`, y `A : Set U` bajo *Objects* en el panel a la derecha, y
+`h : x ∈ A` bajo *Assumptions*. La letra `h` aquí se llama un *identificador*
+para la suposición `x ∈ A`.
 
-You will prove goals in Lean using *tactics*.  The first tactic you're
-going to learn is called `exact`, and it is used to close the goal.
-You can close the goal by typing `exact` followed by a proof of the goal.
+Vas a demostrar objetivos en Lean utilizando *tácticas*. La primera táctica que vas
+a aprender se llama `exact`, y se utiliza para cerrar el objetivo.
+Puedes cerrar el objetivo escribiendo `exact` seguido de una prueba del objetivo.
 "
 
 TacticDoc exact
 "
-Use `exact` to close a goal.  If some expression `t` is a proof of
-the goal, then `exact t` will close the goal.
+Utiliza `exact` para cerrar un objetivo. Si alguna expresión `t` es una prueba del
+objetivo, entonces `exact t` cerrará el objetivo.
 
-Think of \"exact\" as meaning
-\"this is exactly what is needed to prove the goal.\"
+Puedes pensar que \"exact\" significa
+\"esto es exactamente lo que se necesita para demostrar el objetivo.\"
 "
 
 NewTactic exact
 
 DefinitionDoc elt as "∈"
-"`x ∈ A` means that `x` is an element of `A`.  To enter the symbol `∈`, type
-`\\mem` or `\\in`."
+"`x ∈ A` significa que `x` es un elemento de `A`.  Para introducir el símbolo `∈`, teclea
+`\\mem` or `\\in` seguido de un espacio."
 
 NewDefinition elt
 
-/-- Let $x$ be an object in the universe $U$, and let $A$ be a set whose elements
-come from $U$.  Suppose that $x ∈ A$.  Then $x \in A$. -/
+/-- Sea $x$ un objeto en el universo $U$, y sea $A$ un conjuntos cuyos elementos proceden de
+$U$.  Supón que $x ∈ A$.  Entonces $x \in A$. -/
 Statement (x : U) (A : Set U) (h : x ∈ A) : x ∈ A := by
-  Hint "In order to complete this proof, type `exact h` in the text box
-  under the goal and click on \"Execute\" or hit the \"Return\" or \"Enter\" key."
+  Hint "Para completar esta prueba, teclea `exact h` en la caja de texto bajo el objetivo
+  y haz click en  \"Execute\" o pulsa le tecla \"Return\" o \"Enter\"."
   exact h
 
 Conclusion
 "
-Congratulations! You completed your first verified proof!
+¡Enhorabuena! Has completado tu primera demostración.
 
-Although this theorem was trivial, it illustrates an important fact: although we
-called `h` an *identifier* for the assumption `x ∈ A`, it is also recognized by Lean
-as a *proof* of the statement `x ∈ A`.  Any time you see `h : P`
-listed as an assumption, where `P` is some statement, that means that Lean will
-recognize `h` as a proof of the statement `P`.
+Aunque este teorema era trivial, ilustra un hecho importante:
+aunque llamamos a `h` un *identificador* para la suposición `x ∈ A`,
+también es reconocido por Lean como una *prueba* de la afirmación `x ∈ A`.
+Cada vez que veas `h : P` enumerado como una suposición, donde `P` es alguna afirmación,
+eso significa que Lean reconocerá `h` como una prueba de la afirmación `P`.
 
-Remember that `exact` is a *tactic*. If you ever want information about the `exact` tactic,
-you can click on `exact` in the list of tactics on the right.
+Recuerda que `exact` es una *táctica*. Si alguna vez quieres obtener información sobre la táctica `exact`,
+puedes pulsar en `exact` en la lista de tácticas a la derecha.
 
-Now click on \"Next\" to see a more interesting use of the `exact` tactic.
+Ahora pulsa en \"Next\" para ver un uso más interesante de la táctica `exact`.
 "

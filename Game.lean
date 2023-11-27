@@ -11,71 +11,67 @@
 import Game.Levels.Combo
 
 -- Here's what we'll put on the title screen
-Title "Set Theory Game"
+Title "Juego de Teoría de Conjuntos"
 Introduction
 "
-# Welcome to the Set Theory Game
-#### An introduction to mathematical proof.
+# Bienvenido al Juego de Teoría de Conjuntos
+#### Una introducción a la demostración matemática.
 
-In this game, you will solve a sequence of levels by proving theorems.  The game
-is based on an interactive theorem prover called *Lean*.
+En este juego, resolverás una secuencia de niveles demostrando teoremas.
+El juego se basa en un demostrador interactivo de teoremas llamado *Lean*.
 
-The theorems in this game will be about sets.
-A *set* is a collection of objects; the objects in the collection are
-called *elements* of the set.  For example, the set of planets in our
-solar system has eight elements:
-Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, and Neptune.
+Los teoremas en este juego tratarán sobre conjuntos.
+Un *conjunto* es una colección de objetos; los objetos en la colección se llaman *elementos*
+del conjunto. Por ejemplo, el conjunto de planetas en nuestro sistema solar tiene ocho elementos:
+Mercurio, Venus, Tierra, Marte, Júpiter, Saturno, Urano y Neptuno.
 
-# Read this.
+# Lee esto.
 
-Learning how to use an interactive theorem prover takes time.
-You will get the most out of this game if you
-read the help texts like this one.
+Aprender a usar un demostrador interactivo de teoremas lleva tiempo. Obtendrás más provecho de este
+juego si lees los textos de ayuda como este.
 
-To start, click on \"Subset World\".
+Para comenzar, haz clic en\"Mundo de subconjuntos\".
 
-## More
+## Más
 
-Open \"Game Info\" in the \"≡\" menu on the top right for resources,
-links, and ways to interact with the Lean community.
-"
+Abre \"Game Info\" en el menú  \"≡\" en la esquina superior derecha para obtener recursos, enlaces
+y formas de interactuar con la comunidad Lean.
 
-Info "
-*Game version: 4.1*
+**Información**
+*Versión del juego: 4.1*
 
-## Progress saving
+## Guardado de progreso
 
-The game stores your progress in your local browser storage.
-If you delete it, your progress will be lost!
+El juego guarda tu progreso en el almacenamiento local del navegador. ¡Si lo borras, perderás tu progreso!
 
-Warning: In most browsers, deleting cookies will also clear the local storage
-(or \"local site data\"). Make sure to download your game progress first!
+**Advertencia:** En la mayoría de los navegadores, borrar cookies también eliminará el
+almacenamiento local (o \"datos del sitio local\"). ¡Asegúrate de descargar primero tu progreso en el juego!
 
-## Credits
+## Créditos
 
-* **Creator:** Daniel J. Velleman; based on the Natural Numbers Game, by Kevin Buzzard
-* **Game Engine:** Alexander Bentkamp, Jon Eugster, Patrick Massot
+- **Creador:** Daniel J. Velleman; basado en el Juego de Números Naturales, de Kevin Buzzard
+- **Motor del juego:** Alexander Bentkamp, Jon Eugster, Patrick Massot
+- **Traducción al español:** Miguel Marco
 
-## Resources
+## Recursos
 
-* The [Lean Zulip chat](https://leanprover.zulipchat.com/) forum
+- [Foro de chat Lean Zulip](https://leanprover.zulipchat.com/)
 
-## Problems?
+## ¿Problemas?
 
-Please ask any questions about this game in the
-[Lean Zulip chat](https://leanprover.zulipchat.com/) forum, for example in
-the stream \"New Members\". The community will happily help. Note that
-the Lean Zulip chat is a professional research forum.
-Please use your full real name there, stay on topic, and be nice. If you're
-looking for somewhere less formal (e.g. you want to post set theory
-game memes) then head on over to the [Lean Discord](https://discord.gg/WZ9bs9UCvx).
+Por favor, haz cualquier pregunta sobre este juego en el
+[foro de chat Lean Zulip](https://leanprover.zulipchat.com/), por ejemplo, en el canal
+\"New Members\". La comunidad estará encantada de ayudar. Ten en cuenta que el chat Lean Zulip es
+un foro de investigación profesional. Utiliza tu nombre real completo allí, mantente en el tema
+y sé amable. Si buscas un lugar menos formal (por ejemplo, si quieres publicar memes del juego de
+teoría de conjuntos), dirígete al [Discord de Lean](https://discord.gg/WZ9bs9UCvx).
 
-Alternatively, if you experience issues / bugs you can also open github issues:
+Alternativamente, si experimentas problemas/errores, también puedes abrir problemas en GitHub:
 
-* For issues with the game engine, please open an
-[issue at the lean4game repo](https://github.com/leanprover-community/lean4game/issues).
-* For issues about the game's content, please open an
-[issue at the STG repo](https://github.com/djvelleman/STG4/issues).
+- Para problemas con el motor del juego, abre un
+[issue en el repositorio lean4game](https://github.com/leanprover-community/lean4game/issues).
+- Para problemas sobre el contenido del juego, abre un
+[issue en el repositorio STG](https://github.com/djvelleman/STG4/issues).
 "
 
 -- Here we could add additional connections between the worlds

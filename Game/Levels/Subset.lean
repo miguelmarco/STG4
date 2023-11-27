@@ -9,24 +9,24 @@ a finite set of levels (imported above). Each level has a
 level number defined within it, and that's what determines
 the order of the levels.
 -/
-World "Subset"
-Title "Subset World"
+World "Subconjunto"
+Title "Mundo de subconjuntos."
 
 Introduction
-"Welcome to Subset World! In this world you will learn about sets and
-subsets, and you will also learn the basics of proving theorems in Lean.
+"
+# ¡Bienvenido al mundo de los subconjuntos!
+En este mundo, aprenderás sobre conjuntos y subconjuntos, y también aprenderás los conceptos
+básicos de cómo demostrar teoremas en Lean.
 
-The elements of the sets in this world will come from a universe called `U`.
-(Lean calls `U` a *Type*.)  To specify that an
-object `x` belongs to the universe `U`, we write `x : U`.  To specify
-that `A` is a set of objects from `U`, we write `A : Set U`.  To
-say that `x` is an element of `A`, we write `x ∈ A`.  (You can enter
-the symbol `∈` by typing `\\mem` or `\\in`, followed by a space.)
+Los elementos de los conjuntos en este mundo provendrán de un universo llamado `U`.
+(Lean llama a `U` un *Tipo*.) Para especificar que un objeto `x` pertenece al universo `U`,
+escribimos `x : U`. Para especificar que `A` es un conjunto de objetos de `U`, escribimos
+`A : Set U`. Para decir que `x` es un elemento de `A`, escribimos `x ∈ A`.
+(Puedes ingresar el símbolo `∈` escribiendo `\\mem` o `\\in`, seguido de un espacio).
 
-You will prove theorems in this game by using tools called *tactics*.
-The aim is to prove the theorem by applying tactics
-in the right order.
+Probarás teoremas en este juego utilizando herramientas llamadas *tácticas*.
+El objetivo es demostrar el teorema aplicando tácticas en el orden correcto.
 
-Let's learn some basic tactics. Click on \"Start\" below
-to get started.
+Aprendamos algunas tácticas básicas. Haz click en \"Start\" a continuación
+para empezar.
 "

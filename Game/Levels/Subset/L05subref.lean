@@ -2,48 +2,49 @@ import Game.Levels.Subset.L04imp
 
 variable {U : Type}
 
-World "Subset"
+World "Subconjunto"
 Level 5
-Title "Subset is reflexive"
+Title "La relación de contenido es reflexiva"
 
 Introduction
 "
-How do you prove that one set is a subset of another?  To prove that `A ⊆ B`,
-you have to show that if some object `x` is an element of `A`, then it is also
-an element of `B`.  To do that, you'll have to introduce an object `x` into
-the proof.
+¿Cómo demuestras que un conjunto es un subconjunto de otro? Para demostrar que `A ⊆ B`,
+tienes que mostrar que si algún objeto `x` es un elemento de `A`, entonces también lo es
+un elemento de `B`. Para hacer eso, tendrás que introducir un objeto `x` en
+la prueba.
 
-In this level, we start with a simple example of this kind of proof.  We're going
-to show that if `A` is a set, then `A ⊆ A`.
+En este nivel, comenzamos con un ejemplo simple de este tipo de prueba. Vamos a mostrar
+que si `A` es un conjunto, entonces `A ⊆ A`.
 "
 
-LemmaTab "Set Theory"
+LemmaTab "Teoría de conjuntos"
 
-LemmaDoc sub_ref as "sub_ref" in "Set Theory"
+LemmaDoc sub_ref as "sub_ref" in "Teoría de conjuntos"
 "
-If you have `A : Set U`, then `sub_ref A` is a proof of `A ⊆ A`.
+Si tenemos `A : Set U`, entonces `sub_ref A` es una prueba de que `A ⊆ A`.
 "
 
-/-- Let $A$ be any set.  Then $A \subseteq A$. -/
+/-- Sea $A$ un conjunto cualquiera.  Entonces $A \subseteq A$. -/
 Statement sub_ref (A : Set U) : A ⊆ A := by
-  Hint "Our first step is to introduce an object `x` into the proof.  To do this, type `intro x`.
-  We have already seen that the `intro` tactic can be used to introduce a new *assumption* into a
-  proof.  This step illustrates a second use of `intro`: introducing a new *object* into a proof."
+  Hint "Nuestro primer paso es introducir un objeto `x` en la prueba. Para hacer esto,
+  escribe `intro x`. Ya hemos visto que la táctica `intro` se puede utilizar para introducir
+  una nueva *suposición* en una prueba. Este paso ilustra un segundo uso de `intro`:
+  introducir un nuevo *objeto* en una prueba."
   intro x
-  Hint "Notice that `{x} : U` has been added to the list of objects, and
-  the goal has changed to `{x} ∈ A → {x} ∈ A`.  Fortunately, you already know how to prove
-  a goal of this form."
-  Hint (hidden := true) "Use `intro` again to introduce the assumption `{x} ∈ A`."
+  Hint "Observa que `{x} : U` se ha agregado a la lista de objetos, y
+  el objetivo ha cambiado a `{x} ∈ A → {x} ∈ A`. Afortunadamente, ya sabes cómo demostrar
+  un objetivo de esta forma."
+  Hint (hidden := true) "Usa `intro` otra vez para introducir la suposición `{x} ∈ A`."
   intro h
-  Hint "The situation now should remind you of your first proof, in level 1 of this world."
-  Hint (hidden := true) "Notice that {h} is now a proof of the goal."
+  Hint "La situación ahora debería recordarte a tu primera demostración, en el nivel 1 de este mundo."
+  Hint (hidden := true) "Observa que {h} es ahora una prueba del objetivo."
   exact h
 
 NewLemma sub_ref
 
 Conclusion
 "
-The theorem you have proven in this level shows that the subset relation has
-a property called *reflexivity*.  We have given the theorem the name `sub_ref`.  You
-will see it in the list of theorems on the right.
+El teorema que has demostrado en este nivel muestra que la relación de ser subconjunto tiene
+una propiedad llamada *reflexividad*. Hemos dado al teorema el nombre `sub_ref`.
+Lo verás en la lista de teoremas a la derecha.
 "

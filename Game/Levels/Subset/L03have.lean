@@ -2,55 +2,55 @@ import Game.Levels.Subset.L02subhyp
 
 variable {U : Type}
 
-World "Subset"
+World "Subconjunto"
 Level 3
-Title "The have tactic"
+Title "La táctica have"
 
 Introduction
 "
-In this level, we have hypotheses `h1 : A ⊆ B`, `h2 : B ⊆ C`, and `h3 : x ∈ A`.
-As we saw in the last level, `h1 h3` is a proof that `x ∈ B`.  Unfortunately,
-that is not the goal, so we can't use `exact h1 h3` to close the goal.
-However, we can use the proof `h1 h3` to justify adding `h4 : x ∈ B` to our
-list of assumptions.  To do that, we'll use a new tactic: `have`.
+En este nivel, tenemos las hipótesis `h1 : A ⊆ B`, `h2 : B ⊆ C`, y `h3 : x ∈ A`.
+Como vimos en el nivel anterior, `h1 h3` es una prueba de que `x ∈ B`. Lamentablemente,
+ese no es el objetivo, así que no podemos usar `exact h1 h3` para cerrar el objetivo.
+Sin embargo, podemos usar la prueba `h1 h3` para justificar agregar `h4 : x ∈ B` a nuestra
+lista de suposiciones. Para hacer eso, usaremos una nueva táctica: `have`.
 "
 
 TacticDoc «have»
 "
-Use `have` to assert a statement that you can prove from your current
-assumptions.  You must give the new assertion an identifier; be sure to
-use an identifier that is different from those already in use.
+Usa `have` para afirmar una declaración que puedes probar a partir de tus suposiciones actuales.
+Debes darle a la nueva afirmación un identificador; asegúrate de
+usar un identificador que sea diferente de los que ya se están utilizando.
 
-If some expression `t` is a proof of a statement `P`, and `h` is an
-identifier that is not in use, then `have h : P := t` will add `h : P`
-to the list of assumptions.
+Si alguna expresión `t` es una prueba de una afirmación `P`, y `h` es un
+identificador que no está en uso, entonces `have h : P := t` agregará `h : P`
+a la lista de suposiciones.
 
-Sometimes you want to assert a statement `P`, but the proof of `P` is too
-difficult to be given in one line.  In that situation, you can simply write
-`have h : P`.  Of course, you must still justify the assertion of `P`, so
-the proof of `P` becomes your immediate goal.
-Once the goal of proving `P` has been closed, you will be able to return to
-your original goal, with `h : P` added to the assumption list.
+A veces quieres afirmar una declaración `P`, pero la prueba de `P` es demasiado
+difícil para ser dada en una sola línea. En esa situación, simplemente puedes escribir
+`have h : P`. Por supuesto, aún debes justificar la afirmación de `P`, así que
+la prueba de `P` se convierte en tu objetivo inmediato.
+Una vez que se haya cerrado el objetivo de demostrar `P`, podrás volver a
+tu objetivo original, con `h : P` añadido a la lista de suposiciones.
 "
 
 NewTactic «have»
 
-/-- Suppose $A \subseteq B$, $B \subseteq C$, and $x \in A$.  Then $x \in C$. -/
+/-- Supón que $A \subseteq B$, $B \subseteq C$, y $x \in A$.  Entonces $x \in C$. -/
 Statement (x : U) (A B C : Set U)
     (h1 : A ⊆ B) (h2 : B ⊆ C) (h3 : x ∈ A) : x ∈ C := by
-  Hint "To get started on this proof, type `have h4 : x ∈ B := h1 h3`
-  in the text box and click \"Execute\" or hit \"Return\" or \"Enter\".
-  Recall that you can enter the symbol `∈` by typing `\\mem` or `\\in`."
+  Hint "Para iniciar esta prueba, teclea `have h4 : x ∈ B := h1 h3`
+  en la caja de texto y pulsa \"Execute\" o la tecla \"Return\" o \"Enter\".
+  Recuerda que puedes introducir el símbolo `∈` tecleando `\\mem` or `\\in`."
   have h4 : x ∈ B := h1 h3
-  Hint "Notice that `{h4} : x ∈ B` has been added to the list of assumptions.
-  Can you complete the proof now?"
-  Hint (hidden := true) "As we saw in the last level, `h2 {h4}` is now
-  a proof of the goal, so `exact h2 {h4}` will close the goal."
+  Hint "Observa que  `{h4} : x ∈ B` se ha añadido a la lista de suposiciones.
+  ¿Puedes completar la demostración ahora?"
+  Hint (hidden := true) "Como vimos en el anterior nivel, `h2 {h4}` es ahora una prueba
+  del objetivo, así que `exact h2 {h4}` cerrará el objetivo."
   exact h2 h4
 
 Conclusion
 "
-You can use the `have` tactic to add a new statement to your list of
-assumptions, as long as you can justify it with a proof.  For further
-information, click on `have` in the list of tactics on the right.
+Puedes usar la táctica `have` para añadir una afirmación a tu lista de suposiciones,
+siempre que puedas justificarla con una demostración. Para más información, pulsa en `have`
+en la lista de tácticas a la derecha.
 "

@@ -2,48 +2,47 @@ import Game.Levels.Subset.L01exact
 
 variable {U : Type}
 
-World "Subset"
+World "Subconjunto"
 Level 2
-Title "A subset hypothesis"
+Title "Una hipótesis sobre subconjuntos"
 
 Introduction
 "
-If `A` and `B` are sets, then we say that `A` is a *subset* of `B` if
-every element of `A` is also an element of `B`.  The notation `A ⊆ B` means
-that `A` is a subset of `B`.  (To enter the symbol `⊆`, type `\\sub`,
-followed by a space.)
+Si `A` and `B` son conjuntos, decimos que `A` es un *subconjunto* de `B` si
+todo elemento de `A` es también un elemento de `B`. Esto lo denotamos como `A ⊆ B`.
+(Para introducir el símbolo `⊆`, teclea `\\sub`, seguido por un espacio.)
 
-If you have `h1 : A ⊆ B`, then `h1` is a proof that, if something is an element
-of `A`, then it is also an element of `B`.  Thus, if you also have `h2 : x ∈ A`,
-then you can apply `h1` to `h2` to conclude that `x ∈ B`.  To apply `h1` to `h2`,
-you simply write `h1` followed by `h2`, with a space between them.  Thus, in
-this situation, `h1 h2` is a proof of `x ∈ B`.
+Si tienes `h1 : A ⊆ B`, entonces `h1` is una prueba de que, si algo es un elemento de `A`,
+tambiñen es un elemento de `B`. Así, si tienes también `h2 : x ∈ A`,
+puedes aplicar `h1` a `h2` para concluir que `x ∈ B`.  Para aplicar `h1` a `h2`,
+símplemente excribe `h1` seguido de `h2`, con un espacio en medio. Así, en esta situación,
+`h1 h2` es una prueba de `x ∈ B`.
 
-See if you can use this to complete this level.  If you need a hint, click on
+Intenta completar este nivel. Si necesitas ayuda, pulsa en
 \"Show more help!\".
 "
 
 DefinitionDoc sub as "⊆"
-"`A ⊆ B` means that `A` is a subset of `B`.  To enter the symbol `⊆`,
-type `\\sub`."
+"`A ⊆ B` significa que `A` is a subset of `B`.  Para introducir el símbolo `⊆`,
+teclea `\\sub`."
 
 NewDefinition sub
 
-/-- Suppose $A$ and $B$ are sets, $A \subseteq B$, and $x \in A$.
-Then $x \in B$. -/
+/-- Supón que $A$ y $B$ son conjuntos, $A \subseteq B$, y $x \in A$.
+Entonces $x \in B$. -/
 Statement (x : U) (A B : Set U) (h1 : A ⊆ B) (h2 : x ∈ A) : x ∈ B := by
-  Hint (hidden := true) "Since `h1 h2` is a proof of `x ∈ B`, you can
-  close the goal with `exact h1 h2`."
+  Hint (hidden := true) "Como `h1 h2` es una prueba de `x ∈ B`, puedes cerrar el objetivo con
+  `exact h1 h2`."
   exact h1 h2
 
 Conclusion
 "
-This example is a better illustration of how the `exact` tactic is usually
-used.  Often `exact` is followed by an expression that combines hypotheses
-to prove the goal.  In later levels, we will see other ways in which
-hypotheses can be combined to prove a goal.
+Este ejemplo ilustra mejor cómo se usa normalmente la táctica `exact`.
+A menudo, `exact` va seguido de una expresión que combina hipótesis para demostrar el objetivo.
+En niveles posteriores, veremos otras formas en las que las hipótesis se pueden combinar para
+demostrar un objetivo.
 
-Note that in this proof, `h1` could be thought of as a function that can be
-applied to a proof of any statement of the form `x ∈ A` to produce a proof
-of `x ∈ B`.  Many proofs in Lean behave like functions.
+Observa que en esta prueba, `h1` podría pensarse como una función que se puede
+aplicar a una prueba de cualquier afirmación de la forma `x ∈ A` para producir una prueba
+de `x ∈ B`. Muchas pruebas en Lean se comportan como funciones.
 "

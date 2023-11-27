@@ -2,56 +2,56 @@ import Game.Levels.Subset.L03have
 
 variable {U : Type}
 
-World "Subset"
+World "Subconjunto"
 Level 4
-Title "Implication"
+Title "Implicaciones"
 
 Introduction
 "
-If `P` and `Q` are statements, then `P → Q` means \"if P then Q\".
-To enter the symbol `→`, type `\\imp` (short for \"implies\").
+Si `P` y `Q` son afirmaciones, entonces `P → Q` significa \"si P, entonces Q\".
+Para ingresar el símbolo `→`, escribe `\\imp` (abreviatura de \"implica\").
 
-The most straightforward way to prove a statement of the form `P → Q` is to assume that
-`P` is true and then prove `Q`.  To do that, we'll need a new tactic: `intro`.
+La manera más directa de demostrar una afirmación de la forma `P → Q` es asumir que
+`P` es verdadero y luego demostrar `Q`. Para hacer eso, necesitaremos una nueva táctica: `intro`.
 "
 
 DefinitionDoc imp as "→"
-"`P → Q` means \"if `P` then `Q`\".  You can enter the symbol `→` by typing `\\imp`."
+"`P → Q` significa \"si `P` entonces `Q`\".  Puedes introducir el símbolo `→` tecleando `\\imp`."
 
 NewDefinition imp
 
 TacticDoc intro
 "
-Use `intro` to introduce either a new assumption or a new object into your proof.
+Usa `intro` para introducir ya sea una nueva suposición o un nuevo objeto en tu prueba.
 
-There are two situations in which you can use the `intro` tactic:
-* If you are proving a statement of the form `P → Q`, then you can use
-the tactic `intro h` to introduce the assumption `h : P` and set `Q` as the goal.  Be
-sure to use an identifier that is not already in use.
-* If you are proving a statement of the form `∀ x, ...` then you can use
-the tactic `intro x` to introduce a new object `x` into the proof.  Be sure to
-use a variable name that is not already in use.
+Hay dos situaciones en las que puedes usar la táctica `intro`:
+- Si estás demostrando una afirmación de la forma `P → Q`, entonces puedes usar
+la táctica `intro h` para introducir la suposición `h : P` y establecer `Q` como la meta. Asegúrate
+de usar un identificador que no esté en uso.
+- Si estás demostrando una afirmación de la forma `∀ x, ...`, entonces puedes usar
+la táctica `intro x` para introducir un nuevo objeto `x` en la prueba. Asegúrate de
+usar un nombre de variable que no esté en uso.
 
-You can do multiple introductions in one step: for example, `intro x h` has the same
-effect as doing `intro x` followed by `intro h`.
+Puedes realizar múltiples introducciones en un solo paso: por ejemplo, `intro x h` tiene el mismo
+efecto que realizar `intro x` seguido de `intro h`.
 "
 
 NewTactic intro
 
-/-- Suppose $A \subseteq B$ and $x$ is any object in the universe $U$.
-Then $x \in A \to x \in B$. -/
+/-- Supón que $A \subseteq B$ y $x$ es un objeto cualquiera en el universo $U$.
+Entonces $x \in A \to x \in B$. -/
 Statement {A B : Set U} (h1 : A ⊆ B) (x : U) : x ∈ A → x ∈ B := by
-  Hint "Since our goal in this level is the statement `x ∈ A → x ∈ B`, our first step for
-  this proof is to assume `x ∈ A`.  To introduce that assumption,
-  assigning it the identifier `h2`, type `intro h2`."
+  Hint "Dado que nuestro objetivo en este nivel es la afirmación `x ∈ A → x ∈ B`,
+  nuestro primer paso para esta prueba es asumir `x ∈ A`. Para introducir esa
+  suposición, asignándole el identificador `h2`, escribe `intro h2`."
   intro h2
-  Hint "Notice that `{h2} : x ∈ A` is now listed under *Assumptions*, and your new goal is
-  `x ∈ B`."
-  Hint (hidden := true) "h1 {h2} is now a proof of the goal."
+  Hint "Fíjate en que `{h2} : x ∈ A` aparece ahora en el apartado *Assumptions*,
+  y tu nuevo objetivo es `x ∈ B`."
+  Hint (hidden := true) "h1 {h2} es ahoa una prueba del objetivo."
   exact h1 h2
 
 Conclusion
 "
-As usual, for more information about the new tactic `intro`, you can click on `intro`
-in the list of tactics on the right.
+Como de costumbre, para más información sobre la táctica `intro`, puedes pulsar en
+`intro` en la lista de tácticas de la derecha.
 "
