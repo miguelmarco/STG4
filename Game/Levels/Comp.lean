@@ -1,19 +1,19 @@
-import Game.Levels.Comp.L05compsubiff  --It imports all previous levels.
+import Game.Levels.Comp.L05compsubiff  --Importa todos los niveles anteriores.
 /-!
 
-# Complement world
+# Mundo complementario
 -/
 
-World "Complement"
-Title "Complement World"
+World "Complementario"
+Title "Mundo de complementarios"
 
 Introduction
-"If `A` is a set of objects from the universe `U`, then the *complement* of `A`,
-denoted `Aᶜ`, is the set of all objects in the universe `U` that are *not*
-elements of `A`.
+"Si `A` es un conjunto de objetos del universo `U`, entonces el *complementario* de `A`,
+denotado como `Aᶜ`, es el conjunto de todos los objetos en el universo `U` que *no son*
+elementos de `A`.
 
-For example, if `U` consists of all people and `A` is the set of people who are more than
-6 feet tall, then `Aᶜ` is the set of all people who are at most 6 feet tall.
+Por ejemplo, si `U` consiste en todas las personas y `A` es el conjunto de personas que miden más de
+1m90, entonces `Aᶜ` es el conjunto de todas las personas que miden como máximo 1m90.
 
-In this world, we'll see how to prove theorems about complements.
+En este mundo, veremos cómo demostrar teoremas sobre complementos.
 "

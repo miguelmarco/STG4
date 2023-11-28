@@ -2,71 +2,71 @@ import Game.Levels.Comp.L03compsub
 
 variable {U : Type}
 
-World "Complement"
+World "Complementario"
 Level 4
-Title "Complement of a complement"
+Title "Complementario de un complementario"
 
 Introduction
 "
-How do we prove that two sets `A` and `B` are equal?  We'll usually do it by using the theorem
-`sub_antisymm`.  This theorem is pre-defined in this game; you don't need to prove it.
-If you have `h1 : A ⊆ B` and `h2 : B ⊆ A`, then
-`sub_antisymm h1 h2` is a proof of `A = B`.  The theorem `sub_antisymm` says that the
-subset relation has a property called *antisymmetry*.
+¿Cómo demostramos que dos conjuntos, `A` y `B`, son iguales? Usualmente lo hacemos utilizando el teorema
+`sub_antisymm`. Este teorema está predefinido en este juego; no necesitas demostrarlo.
+Si tienes `h1 : A ⊆ B` y `h2 : B ⊆ A`, entonces
+`sub_antisymm h1 h2` es una prueba de `A = B`. El teorema `sub_antisymm` establece que la
+relación de subconjunto tiene una propiedad llamada *antisimetría*.
 
-But what if you don't already know `A ⊆ B` and `B ⊆ A`?  In that case, you can use a new
-tactic, `apply`.  If your goal is `A = B` and you write `apply sub_antisymm`, then Lean will
-figure out that the theorem `sub_antisymm` could be applied to prove the goal, if only you had
-proofs of `A ⊆ B` and `B ⊆ A`.  So it will set those *two* statements as goals.
+Pero, ¿qué pasa si aún no sabes que `A ⊆ B` y `B ⊆ A`? En ese caso, puedes usar una nueva
+táctica, `apply`. Si tu objetivo es `A = B` y escribes `apply sub_antisymm`, entonces Lean
+determinará que el teorema `sub_antisymm` podría aplicarse para demostrar el objetivo si
+tuvieras pruebas de `A ⊆ B` y `B ⊆ A`. Entonces establecerá esos *dos* enunciados como objetivos.
 
-If your goal says that two sets are equal, it is usually a good idea to begin with
+Si tu objetivo afirma que dos conjuntos son iguales, generalmente es buena idea comenzar con
 `apply sub_antisymm`.
 "
 
 TacticDoc apply
 "
-You can use the `apply` tactic to work backwards from the goal.  Suppose you think that you
-will be able to use some theorem `t` to prove the goal.  In other words, you think there
-is a proof of the goal of the form `t ?`, where the question mark needs to be replaced
-with a proof of some statement `P` to which the theorem `t` must be applied.  The tactic
-`apply t` will then set `P` as your goal.  If `t` must be applied to more than one proof to
-establish the goal, then `apply t` will set all of the needed proofs as goals.
+Puedes utilizar la táctica `apply` para trabajar hacia atrás desde el objetivo. Supongamos que crees
+que podrás utilizar algún teorema `t` para demostrar el objetivo. En otras palabras, crees que hay
+una prueba del objetivo de la forma `t ?`, donde el signo de interrogación debe ser reemplazado con
+una prueba de alguna afirmación `P` a la cual se debe aplicar el teorema `t`. La táctica `apply t`
+establecerá entonces `P` como tu objetivo. Si es necesario aplicar el teorema `t` a más de una
+prueba para establecer el objetivo, entonces `apply t` establecerá todas las pruebas necesarias como
+objetivos.
 "
 
 NewTactic apply
 
-LemmaTab "Set Theory"
+LemmaTab "Teoría de conjuntos"
 
 lemma sub_antisymm {A B : Set U} (h1 : A ⊆ B) (h2 : B ⊆ A) : A = B := Set.Subset.antisymm h1 h2
 
-LemmaDoc sub_antisymm as "sub_antisymm" in "Set Theory"
-"If you have `h1 : A ⊆ B` and `h2 : B ⊆ A`, then `sub_antisymm h1 h2` is a proof of `A = B`."
+LemmaDoc sub_antisymm as "sub_antisymm" in "Teoría de conjuntos"
+"Si tienes `h1 : A ⊆ B` y `h2 : B ⊆ A`, entonces `sub_antisymm h1 h2` es una prueba de `A = B`."
 
-LemmaDoc comp_comp as "comp_comp" in "Set Theory"
-"If `A` is a set, then `comp_comp A` is a proof of `Aᶜᶜ = A`."
+LemmaDoc comp_comp as "comp_comp" in "Teoría de conjuntos"
+"Si `A` es un conjunto, entonces `comp_comp A` es una prueba de `Aᶜᶜ = A`."
 
-/-- Suppose $A$ is a set.  Then $(A^c)^c = A$. -/
+/-- Si $A$ es un conjunto, entonces $(A^c)^c = A$. -/
 Statement comp_comp (A : Set U) : Aᶜᶜ = A := by
-  Hint "In this level, your goal is `Aᶜᶜ = A`--that is, the complement of `Aᶜ` is equal to `A`.
-  So `apply sub_antisymm` is a good way to start."
+  Hint "En este nivel, tu objetivo es `Aᶜᶜ = A`--decir, el complementario de `Aᶜ` es `A`.
+  Así que usar `apply sub_antisymm` es una buena forma de empezar."
   apply sub_antisymm
-  Hint "Your immediate goal now is to prove that `Aᶜᶜ ⊆ A`.  Once you close that goal,
-  you'll be asked to prove the second goal, `A ⊆ Aᶜᶜ`."
+  Hint "Tu objetivo inmediato ahora es probar que `Aᶜᶜ ⊆ A`.  Una vez cierres este objetivo, tendrás
+  que demostrar un segundo objetivo, `A ⊆ Aᶜᶜ`."
   intro x h1
-  Hint (hidden := true) "Try writing out the definition of complement in {h1}."
+  Hint (hidden := true) "Intenta escribir la definición de complementario en {h1}."
   rewrite [comp_def] at h1
-  Hint "Even though your goal is not a negative statement, the assumption `{h1}` is now the
-  negative statement `{x} ∉ Aᶜ`.  This suggests that proof by
-  contradiction might work: if you assume the opposite of the goal, you might be able to
-  achieve a contradiction by proving `{x} ∈ Aᶜ`."
+  Hint "Aunque tu objetivo no es una negación, la hipótesis `{h1}` es ahora la negación
+  `{x} ∉ Aᶜ`.  Esto sugiere que la demostración por contradicción podría funcionar:
+  si asumes lo contrario del objetivo, tal vez puedas llegar a contradicción probando `{x} ∈ Aᶜ`."
   by_contra h2
-  Hint "Can you prove `{x} ∈ Aᶜ` from your new assumption `{h2} : {x} ∉ A`?  The tactic
-  `rewrite [comp_def] at {h2}` would rewrite `{x} ∈ Aᶜ` as `{x} ∉ A`, but we want to go in
-  the opposite direction, rewriting `{x} ∉ A` as `{x} ∈ Aᶜ`.  To do that, use
-  `rewrite [← comp_def] at {h2}`.  (To enter the left-pointing arrow, type `\\l`.)"
+  Hint "¿Puedes probar `{x} ∈ Aᶜ` a partir de tu nueva hipótesis `{h2} : {x} ∉ A`?  La táctica
+  `rewrite [comp_def] at {h2}` reescribirá `{x} ∈ Aᶜ` como `{x} ∉ A`, pero queremos ir en la otra
+  dirección, reescribiendo `{x} ∉ A` como `{x} ∈ Aᶜ`.  Para ello, usa
+  `rewrite [← comp_def] at {h2}`.  (Para introducir la flecha hacia la izquierda, teclea `\\l`.)"
   rewrite [← comp_def] at h2
   exact h1 h2
-  Hint "The proof of the second goal is similar."
+  Hint "La prueba del segundo objetivo es parecida."
   intro x h1
   rewrite [comp_def]
   by_contra h2
@@ -77,9 +77,9 @@ NewLemma sub_antisymm comp_comp
 
 Conclusion
 "
-We'll see many more uses of the `apply` tactic.  For more details about the use of the tactic,
-click on `apply` under the list of tactics on the right.
+Veremos muchos más usos de la táctica `apply`. Para obtener más detalles sobre el uso de la táctica,
+haz clic en `apply` en la lista de tácticas a la derecha.
 
-We have given this theorem the name `comp_comp`.  Both this theorem and the one in the previous
-level will be useful in the next level.
+Hemos dado a este teorema el nombre `comp_comp`. Tanto este teorema como el de nivel anterior
+serán útiles en el próximo nivel.
 "

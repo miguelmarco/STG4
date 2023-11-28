@@ -2,63 +2,65 @@ import Game.Levels.Comp.L01contra
 
 variable {U : Type}
 
-World "Complement"
+World "Complementario"
 Level 2
-Title "Definition of complement"
+Title "Definición de complementario"
 
 Introduction
 "
-If you have `A : Set U`, then `Aᶜ` is defined to be the set of all objects in the universe `U`
-that are not elements of `A`.  That means that if you also have `x : U`, then the statements
-`x ∈ Aᶜ` and `x ∉ A` are equivalent.  We express this by saying that the statement
-`x ∈ Aᶜ ↔ x ∉ A` is true.  (The symbol `↔` means \"if and only if\", and you can enter it
-by typing `\\iff`.  You can enter the superscript `c` in the notation for the complement
-of a set by typing `\\compl` or `\\^c`.)
+Si tienes `A : Set U`, entonces `Aᶜ` se define como el conjunto de todos los objetos en el universo
+`U` que no son elementos de `A`. Esto significa que si también tienes `x : U`, entonces las
+afirmaciones `x ∈ Aᶜ` y `x ∉ A` son equivalentes. Expresamos esto diciendo que la afirmación
+`x ∈ Aᶜ ↔ x ∉ A` es verdadera. (El símbolo `↔` significa \"si y solo si\", y puedes introducirlo
+escribiendo `\\iff`. Puedes ingresar el superíndice `c` en la notación para el complemento de un
+conjunto escribiendo `\\compl` o `\\^c`.)
 
-In this level, we're going to prove that the statement `x ∈ Aᶜ ↔ x ∉ A` is true, and to do
-it we'll use a new tactic: `rfl`.  The `rfl` tactic can prove any statement of the form
-`P ↔ Q` if `P` and `Q` are statements that are equivalent by virtue of the definitions of
-the symbols occurring in them.  (We say in this case that `P` and `Q` are *definitionally
-equivalent*.)  The `rfl` tactic can also prove statements of the form `X = Y`, if `X` and
-`Y` are definitionally equal.
+En este nivel, vamos a demostrar que la afirmación `x ∈ Aᶜ ↔ x ∉ A` es verdadera, y para hacerlo
+usaremos una nueva táctica: `rfl`. La táctica `rfl` puede demostrar cualquier afirmación de la forma
+`P ↔ Q` si `P` y `Q` son afirmaciones que son equivalentes por virtud de las definiciones de los
+símbolos que aparecen en ellas. (Decimos en este caso que `P` y `Q` son *equivalentes por definición*.)
+La táctica `rfl` también puede demostrar afirmaciones de la forma `X = Y`,
+si `X` e `Y` son iguales por definición.
 "
 
 TacticDoc rfl
-"If your goal is a statement of the form `P ↔ Q`, and `P` and `Q` are definitionally
-equivalent (that is, equivalent by virtue of the definitions of the symbols occurring in
-them), then the `rfl` tactic will close the goal.  It will also close a goal of the form
-`X = Y`, if `X` and `Y` are definitionally equal."
+"
+Si tu objetivo es una afirmación de la forma `P ↔ Q`, y `P` y `Q` son equivalentes por definición
+(es decir, equivalentes por virtud de las definiciones de los símbolos que aparecen en ellas),
+entonces la táctica `rfl` cerrará el objetivo. También cerrará un objetivo de la forma
+`X = Y`, si `X` e `Y` son iguales por definición.
+"
 
 NewTactic rfl
 
 DefinitionDoc comp as "ᶜ"
-"If `A` is a of objects from the universe `U`, then `Aᶜ` is the complement of `A`; that is,
-`Aᶜ` is the set of objects from `U` that are not elements of `A`.  You can enter the symbol `ᶜ`
-by typing `\\compl` or `\\^c`."
+"Si `A` es un conjunto de objetos del universo `U`, entonces `Aᶜ` es el complementarioo de `A`;
+es decir, `Aᶜ` es el conjunto de objetos de `U` que no son elementos de `A`. Puedes ingresar el
+símbolo `ᶜ` escribiendo `\\compl` o `\\^c`."
 
 DefinitionDoc iff as "↔"
-"`P ↔ Q` means \"P if and only if Q\".  You can enter the symbol `↔` by typing `\\iff`."
+"`P ↔ Q` significa \"P si y solo si Q\".  Puedes introducir el símbolo `↔` tecleando `\\iff`."
 
 NewDefinition comp iff
 
-LemmaTab "Set Theory"
+LemmaTab "Teoría de conjuntos"
 
-LemmaDoc comp_def as "comp_def" in "Set Theory"
-"If you have `x : U` and `A : Set U`, then `comp_def x A` is a proof of the statement
+LemmaDoc comp_def as "comp_def" in "Teoría de conjuntos"
+"Si tienes `x : U` y `A : Set U`, entonces `comp_def x A` es una prueba de la afirmación
 `x ∈ Aᶜ ↔ x ∉ A`."
 
-/-- Let $x$ be an object in the universe $U$, and let $A$ be a set whose elements
-come from $U$.  Then $x \in A^c \leftrightarrow x \notin A$. -/
+/-- Sea $x$ un objeto en el universo $U$, y sea $A$ un conjunto cuyos elementos son de $U$.
+Entonces $x \in A^c \leftrightarrow x \notin A$. -/
 Statement comp_def (x : U) (A : Set U) : x ∈ Aᶜ ↔ x ∉ A := by
-  Hint "The proof of the theorem in this level is very easy.
-  Since `x ∈ Aᶜ` and `x ∉ A` are definitionally equivalent, `rfl` will close the goal."
+  Hint "La demostración en este nivel es muy fácil.
+  Como `x ∈ Aᶜ` y `x ∉ A` son iguales por definición, `rfl` cerrará el objetivo."
   rfl
 
 NewLemma comp_def
 
 Conclusion
 "
-We have given the theorem proven in this level the name `comp_def`, since it expresses
-the definition of complement.  In the next level,
-we will see how we can use it to prove theorems about complements.
+Hemos llamado al teorema demostrado en este nivel `comp_def`, porque expresa la definición
+del complementario. En el siguiente nivel veremos cómo usarlo para demostrar teoremas sobre
+complementarios.
 "
