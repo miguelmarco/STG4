@@ -47,7 +47,7 @@ Statement {A B : Set U} (h1 : A ⊆ B) (x : U) : x ∈ A → x ∈ B := by
   intro h2
   Hint "Fíjate en que `{h2} : x ∈ A` aparece ahora en el apartado *Assumptions*,
   y tu nuevo objetivo es `x ∈ B`."
-  Hint (hidden := true) "h1 {h2} es ahoa una prueba del objetivo."
+  Hint (hidden := true) "h1 {h2} es ahora una prueba del objetivo."
   exact h1 h2
 
 Conclusion

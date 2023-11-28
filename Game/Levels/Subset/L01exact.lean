@@ -45,7 +45,7 @@ DefinitionDoc elt as "∈"
 
 NewDefinition elt
 
-/-- Sea $x$ un objeto en el universo $U$, y sea $A$ un conjuntos cuyos elementos proceden de
+/-- Sea $x$ un objeto en el universo $U$, y sea $A$ un conjunto cuyos elementos proceden de
 $U$.  Supón que $x ∈ A$.  Entonces $x \in A$. -/
 Statement (x : U) (A : Set U) (h : x ∈ A) : x ∈ A := by
   Hint "Para completar esta prueba, teclea `exact h` en la caja de texto bajo el objetivo
