@@ -2,25 +2,25 @@ import Game.Levels.Inter.L06inter_sub_swap
 
 variable {U : Type}
 
-World "Intersection"
+World "Intersecciones"
 Level 7
-Title "Intersection is commutative"
+Title "La intersección es conmutativa"
 
 Introduction
 "
-As we saw in Complement World, a good first step when your goal is an equation between
-sets is `apply sub_antisymm`.  For the theorem in this level, that will leave you with
-two goals: `A ∩ B ⊆ B ∩ A` and `B ∩ A ⊆ A ∩ B`.  Fortunately, you can prove *both* of these
-goals by using the theorem `inter_sub_swap` from the last level.
+Como vimos en el mundo de los complementarios, cuando tu objetivo es una igualdad entre conjuntos,
+una buena forma de empezar es usar `apply sub_antisymm`. Para el teorema en este nivel,
+esto te dejará dos objetivos: `A ∩ B ⊆ B ∩ A` and `B ∩ A ⊆ A ∩ B`. Por suerte, puedes probar
+*ambos* teoremas usando el teorema `inter_sub_swap` del nivel anterior.
 "
 
-LemmaTab "Set Theory"
+LemmaTab "Teoría de conjuntos"
 
-LemmaDoc inter_comm as "inter_comm" in "Set Theory"
-"For any sets `A` and `B`, `inter_comm A B` is a proof of the
-statement `A ∩ B = B ∩ A`."
+LemmaDoc inter_comm as "inter_comm" in "Teoría de conjuntos"
+"Dados dos conjuntos `A` y `B`, `inter_comm A B` es una prueba de la afirmación
+`A ∩ B = B ∩ A`."
 
-/-- For any sets $A$ and $B$, $A \cap B = B \cap A$. -/
+/-- Dados dos conjuntos $A$ y $B$, $A \cap B = B \cap A$. -/
 Statement inter_comm (A B : Set U) : A ∩ B = B ∩ A := by
   apply sub_antisymm
   exact inter_sub_swap A B
@@ -30,5 +30,5 @@ NewLemma inter_comm
 
 Conclusion
 "
-We'll prove one more property of intersections in the next level.
+Probaremos una última propiedad de las intersecciones en el sighu
 "

@@ -2,39 +2,38 @@ import Game.Levels.Inter.L05subint
 
 variable {U : Type}
 
-World "Intersection"
+World "Intersecciones"
 Level 6
-Title "Intersection subset of swap"
+Title "La intersección es un subconjunto de la intersección conmutada"
 
 Introduction
 "
-In the next level we're going to prove that intersection is commutative; that is,
-`A ∩ B = B ∩ A`.  As a warm-up, in this level we prove `A ∩ B ⊆ B ∩ A`.
+En el siguiente nivel vamos a probar que la intersección es conmutativa, es decir,
+`A ∩ B = B ∩ A`. Como calentamiento, en este nivel probaremos que `A ∩ B ⊆ B ∩ A`.
 "
 
-LemmaTab "Set Theory"
+LemmaTab "Teoría de conjuntos"
 
-LemmaDoc inter_sub_swap as "inter_sub_swap" in "Set Theory"
-"For any sets `A` and `B`, `inter_sub_swap A B` is a proof of
+LemmaDoc inter_sub_swap as "inter_sub_swap" in "Teoría de conjuntos"
+"Dados dos conjuntos `A` y `B`, `inter_sub_swap A B` es una prueba de
 `A ∩ B ⊆ B ∩ A`."
 
-/-- For any sets $A$ and $B$, $A \cap B \subseteq B \cap A$. -/
+/-- Para dos conjuntos $A$ y $B$, $A \cap B \subseteq B \cap A$. -/
 Statement inter_sub_swap (A B : Set U) : A ∩ B ⊆ B ∩ A := by
   intro x h
-  Hint (hidden := true) "It will help you see how to proceed if you
-  write out the definition of intersection in both the assumption {h} and the goal.
-  Using the `rewrite` tactic isn't necessary; you can just do the rewriting in
-  your head rather than asking Lean to do it.  But if it helps you to figure out the
-  proof, go ahead and use the `rewrite` tactic."
+  Hint (hidden := true) "Te puede resultar útil reescribir la definición de la intersección
+  tanto en la hipótesis {h} como en el objetivo. No es necesario usar la táctica `rewrite`;
+  puedes hacer la reescritura mentalmente en lugar de pedirle a Lean que lo haga. Pero si
+  te ayuda a entender la prueba, adelante, usa la táctica `rewrite`."
   rewrite [inter_def]
   rewrite [inter_def] at h
-  Hint (hidden := true) "Now `And.intro {h}.right {h}.left` proves the goal."
+  Hint (hidden := true) "Ahora`And.intro {h}.right {h}.left` prueba el objetivo."
   exact And.intro h.right h.left
 
 NewLemma inter_sub_swap
 
 Conclusion
 "
-We have given this theorem the name `inter_sub_swap`.  Thus, from now on, for
-any sets `A` and `B`, `inter_sub_swap A B` is a proof of `A ∩ B ⊆ B ∩ A`.
+Hemos llamado a este teorema `inter_sub_swap`.  A partir de ahora, para dos conjuntos cualesquiera
+`A` y `B`, `inter_sub_swap A B` es una prueba de `A ∩ B ⊆ B ∩ A`.
 "

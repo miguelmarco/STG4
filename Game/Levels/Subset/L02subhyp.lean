@@ -23,7 +23,7 @@ Intenta completar este nivel. Si necesitas ayuda, pulsa en
 "
 
 DefinitionDoc sub as "⊆"
-"`A ⊆ B` significa que `A` is a subset of `B`.  Para introducir el símbolo `⊆`,
+"`A ⊆ B` significa que `A` es un subconjunto de `B`.  Para introducir el símbolo `⊆`,
 teclea `\\sub`."
 
 NewDefinition sub

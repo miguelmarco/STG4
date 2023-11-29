@@ -4,27 +4,26 @@ variable {U : Type}
 
 World "Combination"
 Level 4
-Title "Union distributes over intersection"
+Title "Distributividad de la unión respecto a la intersección"
 
 Introduction
 "
-This is different from the previous theorem--the roles of union and intersection have
-been swapped.
+Este es diferente del anterior: el papel de la unión e intersección se ha intercambiado.
 
-Once again, there is a tricky shortcut: there is a way to use the theorem from the
-previous level to prove this theorem.
+De nuevo, se puede usar un atajo: hay una forma de usar el teorema anterior para demostrar este
+teorema.
 
-But if you don't see the shortcut, you can use a straightforward approach.
-If you made it through the last one, you can do this one too!
+Pero si no ves el atajo, puedes usar el método directo. ¡Si pudiste con el anterior, podrás con
+este!
 "
 
-LemmaTab "Set Theory"
+LemmaTab "Teoría de conjuntos"
 
-LemmaDoc union_distrib_over_inter as "union_distrib_over_inter" in "Set Theory"
-"For any sets `A`, `B`, and `C`, `union_distrib_over_inter A B C` is a proof of the
-statement `A ∪ (B ∩ C) = (A ∪ B) ∩ (A ∪ C)`."
+LemmaDoc union_distrib_over_inter as "union_distrib_over_inter" in "Teoría de conjuntos"
+"Dados conjuntos `A`, `B`, y `C`, `union_distrib_over_inter A B C` es una prueba de
+`A ∪ (B ∩ C) = (A ∪ B) ∩ (A ∪ C)`."
 
-/-- For any sets $A$, $B$, and $C$, $A \cup (B \cap C) = (A \cup B) \cap (A \cup C)$. -/
+/-- Dados conjuntos $A$, $B$, y $C$, $A \cup (B \cap C) = (A \cup B) \cap (A \cup C)$. -/
 Statement union_distrib_over_inter (A B C : Set U) : A ∪ (B ∩ C) = (A ∪ B) ∩ (A ∪ C) := by
   rewrite [← comp_comp (A ∪ (B ∩ C))]
   rewrite [comp_union]
@@ -39,5 +38,5 @@ NewLemma union_distrib_over_inter
 
 Conclusion
 "
-To finish off Union World, we'll do one more tricky theorem.
+Para terminar el mundo de las uniones, veremos un último teorema complicadillo.
 "

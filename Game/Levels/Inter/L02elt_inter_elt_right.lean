@@ -2,47 +2,50 @@ import Game.Levels.Inter.L01and
 
 variable {U : Type}
 
-World "Intersection"
+World "Intersecciones"
 Level 2
-Title "Element of an intersection"
+Title "Elementos de la intersección"
 
 Introduction
 "
-In this level, we'll need to use the definition of \"intersection\".  The theorem that
-expresses that definition is called `inter_def`.  If you have `x : U`, `A : Set U`, and
-`B : Set U`, then `inter_def x A B` is a proof of the statement `x ∈ A ∩ B ↔ x ∈ A ∧ x ∈ B`.
-As we saw in Complement World, that means that the tactic `rewrite [inter_def x A B]` can be
-used to replace `x ∈ A ∩ B` in the goal with `x ∈ A ∧ x ∈ B`.  Usually Lean can figure out
-`x`, `A`, and `B` on its own, so you can just write `rewrite [inter_def]`, and you can
-use `rewrite [inter_def] at h` to do the replacement in an assumption `h` rather than
-the goal.
+En este nivel, necesitaremos usar la definición de \"intersección\". El teorema que
+expresa esa definición se llama `inter_def`. Si tienes `x : U`, `A : Set U` y
+`B : Set U`, entonces `inter_def x A B` es una prueba de la afirmación
+`x ∈ A ∩ B ↔ x ∈ A ∧ x ∈ B`. Como vimos en el Mundo de complementarios, esto significa
+que la táctica `rewrite [inter_def x A B]` puede usarse para reemplazar `x ∈ A ∩ B`
+en la meta con `x ∈ A ∧ x ∈ B`. Por lo general, Lean puede deducir `x`, `A` y `B`
+por sí mismo, así que simplemente puedes escribir `rewrite [inter_def]`,
+y puedes usar `rewrite [inter_def] at h` para reescribir en una hipótesis
+`h` en lugar del objetivo.
 
-Like `comp_def`, `inter_def` can be proven by using the `rfl` tactic.  But we
-won't ask you to prove it; it is pre-defined in this game.  To enter the symbol `∩`, you
-can type `\\inter` or `\\cap`.
+Al igual que `comp_def`, `inter_def` puede demostrarse usando la táctica `rfl`.
+Pero no te pediremos que lo demuestres; está predefinido en este juego. Para ingresar
+el símbolo `∩`, puedes escribir `\\inter` o `\\cap`.
 "
 
 DefinitionDoc inter as "∩"
-"If `A` and `B` are sets, then `A ∩ B` is the intersection of `A` and `B`.
-To enter the symbol `∩`, type `\\inter` or `\\cap`."
+"Si `A` y `B` son conjuntos, entonces `A ∩ B` es la intersección de `A` y `B`.
+Para introducir el símbolo `∩`, puedes escribir `\\inter` o `\\cap`.
+"
 
 NewDefinition inter
 
-LemmaTab "Set Theory"
+LemmaTab "Teoría de conjuntos"
 
-LemmaDoc inter_def as "inter_def" in "Set Theory"
-"If you have `x : U`, `A : Set U`, and `B : Set U`, then `inter_def x A B` is a proof of the
-statement `x ∈ A ∩ B ↔ x ∈ A ∧ x ∈ B`."
+LemmaDoc inter_def as "inter_def" in "Teoría de conjuntos"
+"Si tienes `x : U`, `A : Set U` y `B : Set U`, entonces `inter_def x A B` es una prueba
+de la afirmación `x ∈ A ∩ B ↔ x ∈ A ∧ x ∈ B`.
+"
 
 lemma inter_def (x : U) (A B : Set U) : x ∈ A ∩ B ↔ x ∈ A ∧ x ∈ B := by rfl
 
 NewLemma inter_def
 
-/-- Suppose $x \in A ∩ B$.  Then $x \in B$. -/
+/-- Supongamos que $x \in A ∩ B$.  Entonces $x \in B$. -/
 Statement (x : U) (A B : Set U) (h : x ∈ A ∩ B) : x ∈ B := by
-  Hint "To start on this proof, try writing out the meaning of intersection in `h`."
+  Hint "Para empezar esta prueba, intenta escribir el significado de intersección en `h`."
   rewrite [inter_def] at h
-  Hint "Now your situation is similar to the previous level."
+  Hint "Ahora estás en una situación parecida al nivel anterior."
   exact h.right
 
 Conclusion

@@ -2,35 +2,35 @@ import Game.Levels.Inter.L03inter_sub_left
 
 variable {U : Type}
 
-World "Intersection"
+World "Intersecciones"
 Level 4
-Title "Proving a conjunction"
+Title "Demostrando una conjunción"
 
 Introduction
 "
-In this level we'll prove a statement of the form `P ∧ Q`.  To do this, we'll need
-another theorem: `And.intro`.  If you have `h1 : P` and `h2 : Q`, then
-`And.intro h1 h2` is a proof of `P ∧ Q`.
+En este nivel, probaremos una afirmación de la forma `P ∧ Q`. Para hacer esto, necesitaremos
+otro teorema: `And.intro`. Si tienes `h1 : P` y `h2 : Q`, entonces `And.intro h1 h2` es una
+prueba de `P ∧ Q`.
 "
 
-LemmaTab "Logic"
+LemmaTab "Lógica"
 
-LemmaDoc And.intro as "And.intro" in "Logic"
-"If you have `h1 : P` and `h2 : Q`, then `And.intro h1 h2` is a proof of `P ∧ Q`."
+LemmaDoc And.intro as "And.intro" in "Lógica"
+"Si tenemos `h1 : P` y `h2 : Q`, entonces `And.intro h1 h2` es una prueba de `P ∧ Q`."
 
 NewLemma And.intro
 
-/-- Suppose $x \in A$ and $x \in B$.  Then $x \in A \cap B$. -/
+/-- Supón que $x \in A$ y $x \in B$.  Entonces $x \in A \cap B$. -/
 Statement (x : U) (A B : Set U) (h1 : x ∈ A) (h2 : x ∈ B) : x ∈ A ∩ B := by
-  Hint "Writing out the meaning of intersection in the goal will help you see what to do to
-  complete this level."
+  Hint "Reescribir el significado de la intersección en el objetivo puede ayudarte a ver
+  qué es lo necesario para completar este nivel."
   rewrite [inter_def]
-  Hint "Now you can use `And.intro` to prove the goal."
-  Hint (hidden := true) "`exact And.intro h1 h2` will close the goal."
+  Hint "Ahora puedes usar `And.intro` para probar el objetivo."
+  Hint (hidden := true) "`exact And.intro h1 h2` cerrará el objetivo."
   exact And.intro h1 h2
 
 Conclusion
 "
-Once again, the use of `rewrite` was not really necessary.  You could prove this
-theorem with the single step `exact And.intro h1 h2`.
+De nuevo, `rewrite` no era realmente necesario. Podrías haber demostrado este teorema
+en un sólo paso: `exact And.intro h1 h2`.
 "

@@ -85,6 +85,6 @@ Alternativamente, si experimentas problemas/errores, también puedes abrir probl
 -- Dependency Multiplication → AdvMultiplication
 -- Dependency AdvAddition → EvenOdd → Inequality → StrongInduction
 
-Dependency Intersection → Union
+Dependency Intersecciones → Uniones
 
 MakeGame

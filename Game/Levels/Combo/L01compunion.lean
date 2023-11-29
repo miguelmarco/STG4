@@ -4,22 +4,22 @@ variable {U : Type}
 
 World "Combination"
 Level 1
-Title "Complement of a union"
+Title "Complementario de la unión"
 
 Introduction
 "
-As the proofs get harder, you may sometimes find that you want to use the `have` tactic
-to assert a statement whose proof is too hard to do in a single line.  For an explanation
-of how to do that, click on `have` in the list of tactics on the right.
+Conforme las pruebas se van volviendo más difíciles, puedes descubrir que es útil usar la
+táctica `have` para establecer una afirmación cuya demostración es demasíado compleja para hacerla
+en una línea.
+Para ver ayuda sobre cómo hacerlo, puedes pulsar en `have` en la lista de tácticas a la derecha.
 "
 
-LemmaTab "Set Theory"
+LemmaTab "Teoría de conjuntos"
 
-LemmaDoc comp_union as "comp_union" in "Set Theory"
-"For any sets `A` and `B`, `comp_union A B` is a proof of the
-statement `(A ∪ B)ᶜ = Aᶜ ∩ Bᶜ`."
+LemmaDoc comp_union as "comp_union" in "Teoría de conjuntos"
+"Dados conjuntos `A` and `B`, `comp_union A B` es una prueba de que `(A ∪ B)ᶜ = Aᶜ ∩ Bᶜ`."
 
-/-- For any sets $A$ and $B$, $(A \cup B)^c = A^c \cap B^c$. -/
+/-- Dados conjuntos $A$ y $B$, $(A \cup B)^c = A^c \cap B^c$. -/
 Statement comp_union (A B : Set U) : (A ∪ B)ᶜ = Aᶜ ∩ Bᶜ := by
   apply sub_antisymm
   intro x h1

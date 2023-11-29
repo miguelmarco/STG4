@@ -2,23 +2,22 @@ import Game.Levels.Union.L04union_sub_swap
 
 variable {U : Type}
 
-World "Union"
+World "Uniones"
 Level 5
-Title "Union is commutative"
+Title "La union is conmutativa"
 
 Introduction
 "
-Recall that to prove that two sets are equal, we usually start with
+Recuerda que para demostrar que dos conjuntos son iguales, solemos usar
 `apply sub_antisymm`.
 "
 
-LemmaTab "Set Theory"
+LemmaTab "Teoría de conjuntos"
 
-LemmaDoc union_comm as "union_comm" in "Set Theory"
-"For any sets `A` and `B`, `union_comm A B` is a proof of the
-statement `A ∪ B = B ∪ A`."
+LemmaDoc union_comm as "union_comm" in "Teoría de conjuntos"
+"Dados dos conjuntos `A` y `B`, `union_comm A B` es una prueba de que `A ∪ B = B ∪ A`."
 
-/-- For any sets $A$ and $B$, $A \cup B = B \cup A$. -/
+/-- Dados conjuntos $A$ y $B$, $A \cup B = B \cup A$. -/
 Statement union_comm (A B : Set U) : A ∪ B = B ∪ A := by
   apply sub_antisymm
   exact union_sub_swap A B
@@ -28,5 +27,5 @@ NewLemma union_comm
 
 Conclusion
 "
-Next we'll prove the associative law for unions.
+Ahora probaremos la asociatividad de la unión.
 "

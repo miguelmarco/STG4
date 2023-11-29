@@ -2,45 +2,46 @@ import Game.Levels.Union.L01or
 
 variable {U : Type}
 
-World "Union"
+World "Uniones"
 Level 2
-Title "Subset of a union"
+Title "Subconjunto de una unión"
 
 Introduction
 "
-As with complements and intersections, one of the key tools for proving theorems about unions
-is a theorem stating the definition.  If you have `x : U`, `A : Set U`, and `B : Set U`,
-then `union_def x A B` is a proof of the statement `x ∈ A ∪ B ↔ x ∈ A ∨ x ∈ B`.
-That means you can use `rewrite [union_def]` to write out the definition of
-`x ∈ A ∪ B` if it appears in any assumption or the goal.
+Al igual que con complementarios e intersecciones, una de las herramientas clave para demostrar
+teoremas sobre uniones es un teorema que establece la definición. Si tienes
+`x : U`, `A : Set U` y `B : Set U`,
+entonces `union_def x A B` es una prueba de la afirmación `x ∈ A ∪ B ↔ x ∈ A ∨ x ∈ B`.
+Esto significa que puedes usar `rewrite [union_def]` para reescribir la definición de
+`x ∈ A ∪ B` si aparece en alguna hipótesis o en el objetivo.
 "
 
 DefinitionDoc union as "∪"
-"If `A` and `B` are sets, then `A ∪ B` is the union of `A` and `B`.
-To enter the symbol `∪`, type `\\union`."
+"Si `A` y `B` son conjuntos, entonces `A ∪ B` es la unión de `A` y `B`.
+Para introducir el símbolo `∪`, teclea `\\union`."
 
 NewDefinition union
 
-LemmaTab "Set Theory"
+LemmaTab "Teoría de conjuntos"
 
-LemmaDoc union_def as "union_def" in "Set Theory"
-"If you have `x : U`, `A : Set U`, and `B : Set U`, then `union_def x A B` is a proof of the
-statement `x ∈ A ∪ B ↔ x ∈ A ∨ x ∈ B`."
+LemmaDoc union_def as "union_def" in "Teoría de conjuntos"
+"Si tenemos `x : U`, `A : Set U`, y `B : Set U`, entonces `union_def x A B` es una prueba de la
+afirmación `x ∈ A ∪ B ↔ x ∈ A ∨ x ∈ B`."
 
 lemma union_def (x : U) (A B : Set U) : x ∈ A ∪ B ↔ x ∈ A ∨ x ∈ B := by rfl
 
 NewLemma union_def
 
-/-- Suppose $A$ and $B$ are sets.  Then $B \subseteq A \cup B$. -/
+/-- Supón que $A$ y $B$ son conjuntos. Entonces $B \subseteq A \cup B$. -/
 Statement (A B : Set U) : B ⊆ A ∪ B := by
-  Hint (hidden := true) "Your goal is a subset statement.
-  That should tell you how to get started."
+  Hint (hidden := true) "Tu objetivo es probar un contenido.
+  Esto debería decirte cómo empezar."
   intro x h
-  Hint "Writing out the definition of union in the goal should help you see how to proceed."
+  Hint "Reescriibir la definición de unión en el objetivo debería ayudarte a saber cómo seguir."
   rewrite [union_def]
   exact Or.inr h
 
 Conclusion
 "
-Next, we'll see how to prove that a union is a subset of another set.
+A continuación, veremos como probar que una unión es subconjunto de otro conjunto.
 "

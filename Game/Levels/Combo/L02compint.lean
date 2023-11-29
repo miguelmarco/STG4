@@ -4,25 +4,23 @@ variable {U : Type}
 
 World "Combination"
 Level 2
-Title "Complement of an intersection"
+Title "Complementario de una intersección"
 
 Introduction
 "
-Of course, one way to start on the proof in this level is `apply sub_antisymm`.
-But there is a shorter solution: you can use
-the theorem from the previous level (`comp_union`) to prove the
-theorem in this level.  For a hint on how to do that, click on \"Show more help!\".
+Como de costrumbre, una forma de empezar la prueba en este nivel es `apply sub_antisymm`.
+Pero hay una solución más corta: puedes usar el teorema del nivel anterior (`comp_union`) para
+probar el teorema de este nivel. Si quieres una pista de cómo hacerlo, pulsa en \"Show more help!\".
 "
 
-LemmaTab "Set Theory"
+LemmaTab "Teoría de conjuntos"
 
-LemmaDoc comp_inter as "comp_inter" in "Set Theory"
-"For any sets `A` and `B`, `comp_inter A B` is a proof of the
-statement `(A ∩ B)ᶜ = Aᶜ ∪ Bᶜ`."
+LemmaDoc comp_inter as "comp_inter" in "Teoría de conjuntos"
+"Dados conjuntos `A` y `B`, `comp_inter A B` es una prueba de `(A ∩ B)ᶜ = Aᶜ ∪ Bᶜ`."
 
-/-- For any sets $A$ and $B$, $(A \cap B)^c = A^c \cup B^c$. -/
+/-- Dados conjuntos $A$ y $B$, $(A \cap B)^c = A^c \cup B^c$. -/
 Statement comp_inter (A B : Set U) : (A ∩ B)ᶜ = Aᶜ ∪ Bᶜ := by
-  Hint (hidden := true) "Start by rewriting `Aᶜ ∪ Bᶜ` as `(Aᶜ ∪ Bᶜ)ᶜᶜ`."
+  Hint (hidden := true) "Empieza reescribiendo `Aᶜ ∪ Bᶜ` como `(Aᶜ ∪ Bᶜ)ᶜᶜ`."
   rewrite [← comp_comp (Aᶜ ∪ Bᶜ)]
   rewrite [comp_union]
   rewrite [comp_comp, comp_comp]

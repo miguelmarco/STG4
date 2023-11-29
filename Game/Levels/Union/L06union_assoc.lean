@@ -2,23 +2,23 @@ import Game.Levels.Union.L05union_comm
 
 variable {U : Type}
 
-World "Union"
+World "Uniones"
 Level 6
-Title "Union is associative"
+Title "La unión is asociativa"
 
 Introduction
 "
-Here's an idea that you may find helpful for this proof:
-If you're proving an \"or\" statement and you think you'll be
-able to prove either the left or right side of the statement, then `apply Or.inl` or
-`apply Or.inr` will set the goal to be the left or right side.
+En esta prueba, puede resultar útil la siguiente idea:
+Si quieres demostrar una afirmación de tipo \"o\", y crees que puedes probar el lado izquierdo
+, `apply Or.inl` establecerá el lado izquierdo como objetivo. Análogamente `apply Or.inr` para
+el lado derecho.
 "
 
-LemmaTab "Set Theory"
+LemmaTab "Teoría de conjuntos"
 
-LemmaDoc union_assoc as "union_assoc" in "Set Theory"
-"For any sets `A`, `B`, and `C`, `union_assoc A B C` is a proof of the
-statement `(A ∪ B) ∪ C = A ∪ (B ∪ C)`."
+LemmaDoc union_assoc as "union_assoc" in "Teoría de conjuntos"
+"Dados conjuntos `A`, `B`, y `C`, `union_assoc A B C` es una prueba de que
+`(A ∪ B) ∪ C = A ∪ (B ∪ C)`."
 
 /-- For any sets $A$, $B$, and $C$, $(A \cup B) \cup C = A \cup (B \cup C)$. -/
 Statement union_assoc (A B C : Set U) : (A ∪ B) ∪ C = A ∪ (B ∪ C) := by
@@ -44,6 +44,6 @@ NewLemma union_comm
 
 Conclusion
 "
-You've mastered reasoning about complements, intersections, and unions.  In the next world,
-we'll start mixing them up!
+Ya has aprendido a razonar sobre complementarios, intersecciones y uniones. ¡En el siguiente mundo,
+los mezclaremos!
 "

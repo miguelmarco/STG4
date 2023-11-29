@@ -1,19 +1,19 @@
 import Game.Levels.Inter.L08inter_assoc
 /-!
 
-# Intersection world
+# Mundo de las intersecciones
 
 -/
-World "Intersection"
-Title "Intersection World"
+World "Intersecciones"
+Title "Mundo de intersecciones"
 
 Introduction
-"If `A` and `B` are sets, then the *intersection* of `A` and `B`, denoted
-`A ∩ B`, is the set of elements that the two sets have in common.  In other words,
-for an object to be an element of `A ∩ B`, it must be an element of both `A` and `B`.
+"Si `A` y `B` son conjuntos, la *intersección* de `A` y `B` (denotada
+`A ∩ B`) es el conjunto de los elementos que comparten `A`y `B`. Dicho de otro modo,
+para que un elemento esté en `A ∩ B`, debe estar tanto en `A` como en `B`.
 
-For example, if `A` is the set of all round things, and `B` is the set of all red things,
-then `A ∩ B` is the set of all round red things.
+Por ejemplo, si `A` es el conjunto de los objetos redondos, y `B` es el conjunto de los,
+objetos tojos, `A ∩ B` es el conjunto de los objetos redondos y rojos.
 
-In this world you'll prove some basic properties of intersections of sets.
+En este mundo probarás algunas propiedades básicas de la intersección de conjuntos.
 "

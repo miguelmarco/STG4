@@ -2,46 +2,47 @@ import Game.Levels.Union.L02subunion
 
 variable {U : Type}
 
-World "Union"
+World "Uniones"
 Level 3
-Title "Proof by cases"
+Title "Demostración por casos"
 
 Introduction
 "
-In this proof, we'll need a new proof technique: proof by cases.  And we'll need a new
-tactic to implement that technique in Lean: `cases'`.
+En esta prueba, necesitaremos una nueva técnica: la demostración por casos. Para ello necesitaremos
+una nueva táctica en Lean: `cases'`.
 "
 
 TacticDoc cases'
-"If you have an assumption `h : P ∨ Q`, then the tactic `cases' h with h1 h2` will break
-your proof into cases.  In case 1, you'll have the new assumption `h1 : P`, and in case
-2 you'll have `h2 : Q`.  In both cases you have to prove the original goal."
+"Si tienes una hipótesos `h : P ∨ Q`, entonces la táctica `cases' h with h1 h2` descompondrá
+tu prueba en casos. En el caso 1, tendrás la nueva hipótesis `h1 : P`, y en el caso 2
+tendrás `h2 : Q`. En ambos casos, debes demostrar el objetivo original.
+"
 
 NewTactic cases'
 
-LemmaTab "Set Theory"
+LemmaTab "Teoría de conjuntos"
 
-/-- Suppose $A \subseteq C$ and $B \subseteq C$.  Then $A \cup B \subseteq C$. -/
+/-- Supón que $A \subseteq C$ y $B \subseteq C$.  Entonces $A \cup B \subseteq C$. -/
 Statement (A B C : Set U) (h1 : A ⊆ C) (h2 : B ⊆ C) : A ∪ B ⊆ C := by
-  Hint "Of course, to start a subset proof you need to introduce an object `x` and an
-  assumption `h3`."
+  Hint "Como de costumbre, para demostrar un contenido tienes que introducir un objeto `x` y una
+  hipótesis `h3`."
   intro x h3
-  Hint "To understand the logic of this proof, it will help to write out the definition
-  of union in {h3}."
+  Hint "Para entender la lógica de esta demostración, puede ser útil reescribir la definición de
+  unión en {h3}."
   rewrite [union_def] at h3
-  Hint "Now the assumption {h3} is an \"or\" statement.  The easiest way to use such an
-  assumption is to break your proof into cases.  To do this in lean, use the tactic
+  Hint "Ahora la hipótesis {h3} es una afirmación de tipo \"o\". La forma más fácil de usar una
+  afirmación así es partirla en casos. Para ello, usa la táctica
   `cases' {h3} with {h3}A {h3}B`."
   cases' h3 with h3A h3B
-  Hint "Now you have *two* goals.  For the first, the assumption `{x} ∈ A ∨ {x} ∈ B` has been
-  replaced with `{x} ∈ A`, and for the second it has been replaced with `{x} ∈ B`.  In both
-  cases, you must prove `{x} ∈ C`.  The two identifiers after `with` in the `cases'` tactic
-  are used as the identifiers of the new assumptions in the two cases."
+  Hint "Ahora tienes *dos* objetivos. Para el primero, la hipótesis `{x} ∈ A ∨ {x} ∈ B` ha sido
+  sustituida por `{x} ∈ A`, y para el segundo, por `{x} ∈ B`. En ambos casos
+  tienes que probar `{x} ∈ C`. Los dos identificadores que has escrito despues de `with` en la
+  táctica `cases'` se usan como identificadores de las nuevas hipótesis en los dos casos."
   exact h1 h3A
   exact h2 h3B
 
 Conclusion
 "
-Note that Lean also has a `cases` tactic, but the syntax is a little more complicated.
-That's why we have chosen to use the `cases'` tactic.
+Notar que also también tiene una táctica `cases`, pero su sintaxis en un poco más complicada.
+Por eso hemos optado por usar la táctica `cases'`.
 "

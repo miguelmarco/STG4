@@ -5,10 +5,10 @@ import Game.Levels.Combo.L05union_sub_inter_sub  --It imports all previous level
 -/
 
 World "Combination"
-Title "Combination World"
+Title "Mundo combinado"
 
 Introduction
 "
-In this world you'll prove theorems combining complements, intersections, and unions.  For
-the most part, we'll leave you on your own to figure out these proofs.
+En este mundo, probaras teoremas que involucran complementarios, intersecciones y uniones.
+La mayor parte del tiempo tendrás que hacerlo sin ayuda.
 "

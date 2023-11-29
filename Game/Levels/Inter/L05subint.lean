@@ -2,41 +2,40 @@ import Game.Levels.Inter.L04proveand
 
 variable {U : Type}
 
-World "Intersection"
+World "Intersecciones"
 Level 5
-Title "Subset of an intersection"
+Title "Subconjunto de una intersección"
 
 Introduction
 "
-Of course, you know by now how to start a proof that one set is a subset of another.
+Por supuesto, ahora ya sabes empezar una demostración de que un conjunto es subconjunto de otro.
 "
 
-LemmaTab "Logic"
+LemmaTab "Lógica"
 
-/-- Suppose $A \subseteq B$ and $A \subseteq C$.  Then $A \subseteq B \cap C$. -/
+/-- Supongamos que $A \subseteq B$ y $A \subseteq C$.  Entonces $A \subseteq B \cap C$. -/
 Statement (A B C : Set U) (h1 : A ⊆ B) (h2 : A ⊆ C) : A ⊆ B ∩ C := by
   intro x h3
-  Hint "Writing out the definition of intersection in the goal will help."
+  Hint "Reescribir la definición de intersección en el objetivo puede ayudar."
   rewrite [inter_def]
-  Hint "If you had `hB : x ∈ B` and `hC : x ∈ C`, then `And.intro hB hC`
-  would prove the goal.  So there are two ways to proceed.  One possibility is to use
-  `have` to introduce the assumptions `x ∈ B` and `x ∈ C`--that is, if you can see
-  how to justify those statements!  Then you can use `And.intro` to prove the goal.
+  Hint "Si tuvieras `hB : x ∈ B` y `hC : x ∈ C`, entonces `And.intro hB hC`
+  probaría el objetivo. Así que hay dos formas de seguir. Una opción es usar
+  `have` para introducir las hipótesis `x ∈ B` y `x ∈ C`--si es que puedes
+  justificarlas.--  Entonces puedes usar `And.intro` para probar el objetivo.
 
-  The second possibility is to use the `apply` tactic.  Recall that if you write
-  `apply And.intro`, then Lean will figure out that the
-  theorem `And.intro` could be applied to prove the goal, if only you had proofs of
-  `x ∈ B` and `x ∈ C`.  So it will set those two statements as goals, to be proven
-  one after the other."
+  La segunda opción es usar la táctica `apply`. Recuerda que si escribes
+  `apply And.intro`, Lean deducirá que el teorema `And.intro` podría aplicarse para probar
+  el objetivo si tuvieras pruebas de `x ∈ B` y `x ∈ C`. Así que establecerá esas
+  afirmaciones como nuevos objetivos, para probarlas de una en una."
   apply And.intro
-  Hint "Your immediate goal now is to prove that `x ∈ B`.  Once you close that goal,
-  you'll be asked to prove the second goal, `x ∈ C`."
+  Hint "Tu objetivo inmediato es ahora probar `x ∈ B`. Una vez lo cierres, tendrás que
+  probar el segundo objetivo `x ∈ C`."
   exact h1 h3
   exact h2 h3
 
 Conclusion
 "
-In general, if you think that some theorem `t` could be used to prove the goal, the tactic
-`apply t` will work backwards from the goal, setting as new goals any hypotheses that are
-needed for the application of the theorem `t`.
+En general, si piensas que algún teorema `t` podría usarse para demostrar la meta, la táctica
+`apply t` trabajará hacia atrás desde el objetivo, estableciendo como nuevos objetivos
+las hipótesis necesarias para poder aplicar el teorema `t`.
 "

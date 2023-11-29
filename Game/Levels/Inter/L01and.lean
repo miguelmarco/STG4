@@ -2,33 +2,33 @@ import Game.Levels.Comp
 
 variable {U : Type}
 
-World "Intersection"
+World "Intersecciones"
 Level 1
-Title "And"
+Title "Y"
 
 Introduction
 "
-To work with intersections, we'll need to understand the word \"and\".
+Para trabajar con intersecciones, hay que entender la palabra \"y\".
 
-If `P` and `Q` are statements, then `P ∧ Q` means \"P and Q\".  To enter the
-symbol `∧`, type `\\and`.  For the statement `P ∧ Q` to be true, `P` and `Q` must
-both be true.  If you have `h : P ∧ Q`--that is, `h` is a proof of
-the statement `P ∧ Q`--then in Lean, `h.left` is a proof of `P` and `h.right` is
-a proof of `Q`.  That should be all you need to know to solve this level.
+Si `P` y `Q` son afirmaciones, entonces `P ∧ Q` significa \"P y Q\".  Para introducir el
+símbolo `∧`, teclea `\\and`. Para que la afirmación `P ∧ Q` sea cierta, `P` y `Q` deben
+serlo. Si tenemos `h : P ∧ Q`--es decir, `h` es una prueba de la afirmación
+`P ∧ Q`--entonces, en Lean, `h.left` es una prueba de `P` y `h.right` es
+una prueba de `Q`. Esto es todo lo que necesitas para completar este nivel.
 "
 
 DefinitionDoc and as "∧"
-"`P ∧ Q` means \"P and Q\".  To enter the symbol `∧`, type `\\and`."
+"`P ∧ Q` significa \"P y Q\".  Para introducir el símbolo `∧`, teclea `\\and`."
 
 NewDefinition and
 
-LemmaTab "Set Theory"
+LemmaTab "Teoría de conjuntos"
 
-/-- Suppose $x \in A$ and $x \in B$.  Then $x \in A$. -/
+/-- Supón que $x \in A$ y $x \in B$.  Entonces $x \in A$. -/
 Statement (x : U) (A B : Set U) (h : x ∈ A ∧ x ∈ B) : x ∈ A := by
   exact h.left
 
 Conclusion
 "
-Now we're ready to start proving theorems about intersections.
+Ahora podemos demostrar propiedades de intersecciones.
 "

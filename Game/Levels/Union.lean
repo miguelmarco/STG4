@@ -4,17 +4,18 @@ import Game.Levels.Union.L06union_assoc
 # Union world
 
 -/
-World "Union"
-Title "Union World"
+World "Uniones"
+Title "Mundo de las uniones"
 
 Introduction
-"If `A` and `B` are sets, then the *union* of `A` and `B`, denoted
-`A ∪ B`, is the set you get by throwing all the elements of `A` and `B`
-together into one set.  In other words, for an object to be an element of
-`A ∪ B`, it must be an element of either `A` or `B`, or both.
+"Si `A` y `B` son conjuntos, entonces la *unión* de `A` y `B`, representada
+como `A ∪ B`, es el conjunto que se obtiene al reunir todos los elementos de `A` y `B`
+en un solo conjunto. En otras palabras, para que un objeto sea un elemento de
+`A ∪ B`, debe ser un elemento de `A`, de `B` o de ambos.
 
-For example, if `A` is the set of all people under 30, and `B` is the set of
-all people over 20, then `A ∪ B` is the set of all people.
+Por ejemplo, si `A` es el conjunto de todas las personas menores de 30 años, y `B` es
+el conjunto de todas las personas mayores de 20 años, entonces `A ∪ B` es el conjunto
+de todas las personas.
 
-In this world you'll prove some basic properties of unions of sets.
+En este mundo, demostrarás algunas propiedades básicas de las uniones de conjuntos.
 "

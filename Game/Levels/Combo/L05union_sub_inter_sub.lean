@@ -4,32 +4,32 @@ variable {U : Type}
 
 World "Combination"
 Level 5
-Title "A tricky subset proof"
+Title "Una demostración de contenido complidada"
 
 Introduction
 "
-This proof is a bit tricky.  But you should know how to get started.
+Esta prueba es un poco complicada. Pero deberías saber al menos cómo empezar.
 "
 
-LemmaTab "Set Theory"
+LemmaTab "Teoría de conjuntos"
 
-/-- Suppose $A \cup C \subseteq B \cup C$ and $A \cap C \subseteq B \cap C$.  Then $A \subseteq B$. -/
+/-- Supongamos que $A \cup C \subseteq B \cup C$ y $A \cap C \subseteq B \cap C$. Entonces $A \subseteq B$. -/
 Statement (A B C : Set U) (h1 : A ∪ C ⊆ B ∪ C) (h2 : A ∩ C ⊆ B ∩ C) : A ⊆ B := by
   intro x h3
-  Hint (strict := true) "Now use `have` to assert that `{x} ∈ A ∪ C`.  Remember that, as
-  explained in the description of the `have` tactic, you can do this even if you don't see
-  how to justify the assertion in one step."
+  Hint (strict := true) "Ahora usa `have` para establecer que `{x} ∈ A ∪ C`. Recuerda que, tal
+  como vimos en la descripción de la táctica `have`, esto se puede hacer aunque no veas cómo
+  demostrarla en un solo paso."
   have h4 : x ∈ A ∪ C
   rewrite [union_def]
   exact Or.inl h3
-  Hint (strict := true) (hidden := true) "Use `h1`."
+  Hint (strict := true) (hidden := true) "Usa `h1`."
   have h5 : x ∈ B ∪ C := h1 h4
-  Hint (strict := true) (hidden := true) "Now that you know `x ∈ B ∪ C`, you can use that
-  statement as the basis for breaking your proof into cases."
+  Hint (strict := true) (hidden := true) "Ahora sabes que `x ∈ B ∪ C`, puedes usar eso como base
+  para partir la demostración en casos."
   rewrite [union_def] at h5
   cases' h5 with h5B h5C
   exact h5B
-  Hint (strict := true) (hidden := true) "Notice that you haven't used `h2` yet..."
+  Hint (strict := true) (hidden := true) "Fíjate en que aún no has usado `h2`."
   have h6 : x ∈ A ∩ C
   rewrite [inter_def]
   exact And.intro h3 h5C
@@ -39,5 +39,5 @@ Statement (A B C : Set U) (h1 : A ∪ C ⊆ B ∪ C) (h2 : A ∩ C ⊆ B ∩ C) 
 
 Conclusion
 "
-You've finished Combination World!
+¡Has terminado el mundo combinado!
 "

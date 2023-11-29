@@ -1,7 +1,7 @@
 import Game.Levels.Subset.L06subtrans  --It imports all previous levels.
 /-!
 
-# Subset world
+# Mundo de los subconjuntos
 
 This file defines Subset World. Like all worlds, this world
 has a name, a title, an introduction, and most importantly
@@ -15,6 +15,7 @@ Title "Mundo de subconjuntos."
 Introduction
 "
 # ¡Bienvenido al mundo de los subconjuntos!
+
 En este mundo, aprenderás sobre conjuntos y subconjuntos, y también aprenderás los conceptos
 básicos de cómo demostrar teoremas en Lean.
 

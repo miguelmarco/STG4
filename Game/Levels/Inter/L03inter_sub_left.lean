@@ -2,30 +2,30 @@ import Game.Levels.Inter.L02elt_inter_elt_right
 
 variable {U : Type}
 
-World "Intersection"
+World "Intersecciones"
 Level 3
-Title "Intersection is a subset"
+Title "La intersección es un subconjunto"
 
 Introduction
 "
-You should be able to combine ideas from previous levels to solve this one.
+Deberías poder combinar ideas de los niveles anteriores para resolver este.
 "
 
-LemmaTab "Set Theory"
+LemmaTab "Teoría de conjuntos"
 
-/-- For any sets $A$ and $B$, $A \cap B \subseteq A$. -/
+/-- Dados dos conjuntos $A$ y $B$, $A \cap B \subseteq A$. -/
 Statement (A B : Set U) : A ∩ B ⊆ A := by
-  Hint (hidden := true) "Since the goal is a subset statement, you should start by
-  introducing an object `x` and the assumption that `x ∈ A ∩ B`."
+  Hint (hidden := true) "Como el objetivo es una afirmación de contenido, deberías empezar
+  introduciendo un objeto `x` y la hipótesis de que `x ∈ A ∩ B`."
   intro x h
   rewrite [inter_def] at h
   exact h.left
 
 Conclusion
 "
-You probably used a step like `rewrite [inter_def] at h` in this proof.  That step is
-actually optional.  Writing out the definition of intersection probably helps *you*
-understand how to proceed with the proof, but *Lean* doesn't need to be told to
-write out the definition.  It will do that on its own.  In other words, if you
-have `h : x ∈ A ∩ B`, Lean will accept `h.left` as a proof of `x ∈ A`.
+Probablemente hayas usado un paso como `rewrite [inter_def] at h` en esta prueba. Este paso
+es de hecho opcional. Escribir la definición de la intersección probablemente te ayuda a *ti*
+a entender cómo proceder con la prueba, pero *Lean* no necesita que le digan que escriba
+la definición. Lo hará por sí mismo. En otras palabras, si tienes `h : x ∈ A ∩ B`, Lean
+aceptará `h.left` como una prueba de `x ∈ A`.
 "

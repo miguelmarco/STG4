@@ -4,29 +4,28 @@ variable {U : Type}
 
 World "Combination"
 Level 3
-Title "Intersection distributes over union"
+Title "Distributividad de la intersección respecto de la unión"
 
 Introduction
 "
-This proof is longer than previous ones, but it doesn't require any new tactics or theorems.
-Just stick with it and keep applying the ideas from previous levels!
+Esta prueba es más larga que las anteriores, pero no requiere nuevas tácticas o teoremas.
+Símplemente tienes que ir trabajándola, usando tácticas y teoremas ya vistos.
 "
 
-LemmaTab "Set Theory"
+LemmaTab "Teoría de conjuntos"
 
 LemmaDoc inter_distrib_over_union as "inter_distrib_over_union" in "Set Theory"
-"For any sets `A`, `B`, and `C`, `inter_distrib_over_union A B C` is a proof of the
-statement `A ∩ (B ∪ C) = (A ∩ B) ∪ (A ∩ C)`."
+"Dados conjuntos `A`, `B`, y `C`, `inter_distrib_over_union A B C` es una prueba de
+`A ∩ (B ∪ C) = (A ∩ B) ∪ (A ∩ C)`."
 
-/-- For any sets $A$, $B$, and $C$, $A \cap (B \cup C) = (A \cap B) \cup (A \cap C)$. -/
+/-- Dados conjuntos $A$, $B$, y $C$, $A \cap (B \cup C) = (A \cap B) \cup (A \cap C)$. -/
 Statement inter_distrib_over_union (A B C : Set U) : A ∩ (B ∪ C) = (A ∩ B) ∪ (A ∩ C) := by
   apply sub_antisymm
   intro x h
   rewrite [inter_def] at h
   rewrite [union_def]
-  Hint (strict := true) (hidden := true) "It may help you see how to proceed if you separate
-  out the second half of `{h}` as a separate assumption.
-  You can do this with `have {h}BC : {x} ∈ B ∪ C := {h}.right`."
+  Hint (strict := true) (hidden := true) "Puede ser útil separar la segunda parte de `{h}` como una
+  hiótesis separada. Lo puedes hacer con `have {h}BC : {x} ∈ B ∪ C := {h}.right`."
   have hBC : x ∈ B ∪ C := h.right
   rewrite [union_def] at hBC
   cases' hBC with hB hC
@@ -53,5 +52,5 @@ NewLemma inter_distrib_over_union
 
 Conclusion
 "
-Whew!
+¡Lo conseguiste!
 "
