@@ -1,6 +1,6 @@
 # STG4
 
-Este repositorio contiene la traducción al español del [*Set Theory Game*](https://github.com/djvelleman/STG4) translated to spanish.
+Este repositorio contiene la traducción al español del [*Set Theory Game*](https://github.com/djvelleman/STG4).
 
 ## Agradecimientos
 
