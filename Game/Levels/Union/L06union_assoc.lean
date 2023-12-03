@@ -11,22 +11,28 @@ Introduction
 En esta prueba, puede resultar útil la siguiente idea:
 Si quieres demostrar una afirmación de tipo \"o\", y crees que puedes probar el lado izquierdo
 , `apply Or.inl` establecerá el lado izquierdo como objetivo. Análogamente `apply Or.inr` para
-el lado derecho.
+el lado derecho. Alternativamente, la táctica `left` tiene el mismo efecto que `apply Or.inl`, y
+`right` tiene el mismo efecto que `apply Or.inr`.
+
+Puedes empezar esta prueba con `ext x` o `apply sub_antisymm`.
 "
 
-LemmaTab "Teoría de conjuntos"
+LemmaTab "∩∪"
 
-LemmaDoc union_assoc as "union_assoc" in "Teoría de conjuntos"
+LemmaDoc union_assoc as "union_assoc" in "∩∪"
 "Dados conjuntos `A`, `B`, y `C`, `union_assoc A B C` es una prueba de que
 `(A ∪ B) ∪ C = A ∪ (B ∪ C)`."
 
-/-- For any sets $A$, $B$, and $C$, $(A \cup B) \cup C = A \cup (B \cup C)$. -/
+/-- Dados conjuntos $A$, $B$, y $C$, $(A \cup B) \cup C = A \cup (B \cup C)$. -/
 Statement union_assoc (A B C : Set U) : (A ∪ B) ∪ C = A ∪ (B ∪ C) := by
   apply sub_antisymm
   intro x h
+  rewrite [union_def]
+  rewrite [union_def] at h
   cases' h with hAB hC
   cases' hAB with hA hB
   exact Or.inl hA
+  Hint "Do you know which half of the goal you're going to prove now?"
   apply Or.inr
   exact Or.inl hB
   apply Or.inr
@@ -41,6 +47,8 @@ Statement union_assoc (A B C : Set U) : (A ∪ B) ∪ C = A ∪ (B ∪ C) := by
   exact Or.inr hC
 
 NewLemma union_comm
+
+NewHiddenTactic left right
 
 Conclusion
 "

@@ -11,7 +11,7 @@ Introduction
 Por supuesto, ahora ya sabes empezar una demostración de que un conjunto es subconjunto de otro.
 "
 
-LemmaTab "Lógica"
+LemmaTab "∩∪"
 
 /-- Supongamos que $A \subseteq B$ y $A \subseteq C$.  Entonces $A \subseteq B \cap C$. -/
 Statement (A B C : Set U) (h1 : A ⊆ B) (h2 : A ⊆ C) : A ⊆ B ∩ C := by
@@ -38,4 +38,7 @@ Conclusion
 En general, si piensas que algún teorema `t` podría usarse para demostrar la meta, la táctica
 `apply t` trabajará hacia atrás desde el objetivo, estableciendo como nuevos objetivos
 las hipótesis necesarias para poder aplicar el teorema `t`.
+
+Si tu objetivo tiene la forma `P ∧ Q`, la táctica `constructor` tendrá el mismo efecto que
+`apply And.intro`; es decir, establecerá `P` y `Q` como nuevos objetivos a probar.
 "

@@ -43,9 +43,9 @@ DefinitionDoc iff as "↔"
 
 NewDefinition comp iff
 
-LemmaTab "Teoría de conjuntos"
+LemmaTab "ᶜ"
 
-LemmaDoc comp_def as "comp_def" in "Teoría de conjuntos"
+LemmaDoc comp_def as "comp_def" in "ᶜ"
 "Si tienes `x : U` y `A : Set U`, entonces `comp_def x A` es una prueba de la afirmación
 `x ∈ Aᶜ ↔ x ∉ A`."
 

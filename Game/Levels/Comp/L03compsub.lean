@@ -32,9 +32,9 @@ Para realizar múltiples reemplazos, uno después de otro, coloca una lista de p
 
 NewTactic rewrite
 
-LemmaTab "Teoría de conjuntos"
+LemmaTab "ᶜ"
 
-LemmaDoc comp_sub_of_sub as "comp_sub_of_sub" in "Teoría de conjuntos"
+LemmaDoc comp_sub_of_sub as "comp_sub_of_sub" in "ᶜ"
 "Si tenemos `h : A ⊆ B`, entonces `comp_sub_of_sub h` es una prueba de `Bᶜ ⊆ Aᶜ`."
 
 /-- Supongamos $A \subseteq B$.  Entonces $B^c \subseteq A^c$. -/

@@ -17,9 +17,9 @@ Pero si no ves el atajo, puedes usar el método directo. ¡Si pudiste con el ant
 este!
 "
 
-LemmaTab "Teoría de conjuntos"
+LemmaTab "∩∪"
 
-LemmaDoc union_distrib_over_inter as "union_distrib_over_inter" in "Teoría de conjuntos"
+LemmaDoc union_distrib_over_inter as "union_distrib_over_inter" in "∩∪"
 "Dados conjuntos `A`, `B`, y `C`, `union_distrib_over_inter A B C` es una prueba de
 `A ∪ (B ∩ C) = (A ∪ B) ∩ (A ∪ C)`."
 

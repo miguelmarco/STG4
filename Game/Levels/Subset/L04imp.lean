@@ -38,20 +38,30 @@ efecto que realizar `intro x` seguido de `intro h`.
 
 NewTactic intro
 
-/-- Supón que $A \subseteq B$ y $x$ es un objeto cualquiera en el universo $U$.
-Entonces $x \in A \to x \in B$. -/
-Statement {A B : Set U} (h1 : A ⊆ B) (x : U) : x ∈ A → x ∈ B := by
-  Hint "Dado que nuestro objetivo en este nivel es la afirmación `x ∈ A → x ∈ B`,
-  nuestro primer paso para esta prueba es asumir `x ∈ A`. Para introducir esa
-  suposición, asignándole el identificador `h2`, escribe `intro h2`."
-  intro h2
-  Hint "Fíjate en que `{h2} : x ∈ A` aparece ahora en el apartado *Assumptions*,
-  y tu nuevo objetivo es `x ∈ B`."
-  Hint (hidden := true) "h1 {h2} es ahora una prueba del objetivo."
-  exact h1 h2
+/-- Sea $x$ be un objeto del the universo $U$, y sean $A$, $B$, y $C$ conjuntos tales que
+$A \subseteq B$ y $x \in B \to x \in C$.  Entonces $x \in A → x \in C$.-/
+Statement {x : U} {A B C : Set U} (h1 : A ⊆ B) (h2 : x ∈ B → x ∈ C) : x ∈ A → x ∈ C := by
+  Hint "Como nuestro objetivo es `x ∈ A → x ∈ C`, el primer paso es asumir `x ∈ A`. Para introducir
+  esta hipótesis asignándole el identificador `h3`, teclea `intro h3`."
+  intro h3
+  Hint "Fíjate en que `{h3} : x ∈ A` aparece ahora en el apartado *Assumptions*, y tu nuevo
+  objetivo es `x ∈ C`."
+  Hint (hidden := true) "Como vimos en el nivel anterior, puedes aplicar `h1` a `{h3}`
+  para justificar que `x ∈ B`, usando la táctica `have`."
+  have h4 : x ∈ B := h1 h3
+  Hint (strict := true) "Igual que pudiste aplicar `h1` a `{h3}` en el paso anterior,
+  ahora puedes aplicar `h2` a `{h4}` para probar el objetivo."
+  exact h2 h4
+
 
 Conclusion
 "
+En general, si tu objetivo es de la forma `P → Q`, la táctica `intro h` añadirá `h : P` a la lista
+de hipótesis, y establecerá `Q` como el objetivo a probar. Si tienes hipótesis
+`h1 : P → Q` y `h2 : P`, `h1 h2` es una prueba de `Q`. Este es otro ejemplo de una prueba funcionando
+como una función: una prueba de `P → Q` se puede ver como una función que, cuando se aplica a `P`
+produce una prueba de `Q`.
+
 Como de costumbre, para más información sobre la táctica `intro`, puedes pulsar en
 `intro` en la lista de tácticas de la derecha.
 "

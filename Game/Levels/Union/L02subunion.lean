@@ -22,9 +22,9 @@ Para introducir el símbolo `∪`, teclea `\\union`."
 
 NewDefinition union
 
-LemmaTab "Teoría de conjuntos"
+LemmaTab "∩∪"
 
-LemmaDoc union_def as "union_def" in "Teoría de conjuntos"
+LemmaDoc union_def as "union_def" in "∩∪"
 "Si tenemos `x : U`, `A : Set U`, y `B : Set U`, entonces `union_def x A B` es una prueba de la
 afirmación `x ∈ A ∪ B ↔ x ∈ A ∨ x ∈ B`."
 

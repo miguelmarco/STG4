@@ -14,25 +14,27 @@ en una línea.
 Para ver ayuda sobre cómo hacerlo, puedes pulsar en `have` en la lista de tácticas a la derecha.
 "
 
-LemmaTab "Teoría de conjuntos"
+LemmaTab "ᶜ"
 
-LemmaDoc comp_union as "comp_union" in "Teoría de conjuntos"
+LemmaDoc comp_union as "comp_union" in "ᶜ"
 "Dados conjuntos `A` and `B`, `comp_union A B` es una prueba de que `(A ∪ B)ᶜ = Aᶜ ∩ Bᶜ`."
 
 /-- Dados conjuntos $A$ y $B$, $(A \cup B)^c = A^c \cap B^c$. -/
 Statement comp_union (A B : Set U) : (A ∪ B)ᶜ = Aᶜ ∩ Bᶜ := by
-  apply sub_antisymm
-  intro x h1
+  ext x
+  apply Iff.intro
+  intro h1
   rewrite [comp_def] at h1
   rewrite [inter_def, comp_def, comp_def]
   apply And.intro
   by_contra h2
+  Hint (hidden := true) "To get a contradiction, prove `{x} ∈ A ∪ B`."
   have h3 : x ∈ A ∪ B := Or.inl h2
   exact h1 h3
   by_contra h2
   have h3 : x ∈ A ∪ B := Or.inr h2
   exact h1 h3
-  intro x h1
+  intro h1
   rewrite [inter_def, comp_def, comp_def] at h1
   rewrite [comp_def]
   by_contra h2

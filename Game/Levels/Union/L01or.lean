@@ -36,6 +36,7 @@ NewLemma Or.inl Or.inr
 
 /-- Supón que $x \in A$, y $B$ es un conjunto. Entonces $x \in A ∨ x ∈ B$. -/
 Statement (x : U) (A B : Set U) (h : x ∈ A) : x ∈ A ∨ x ∈ B := by
+  Hint (hidden := true) "`Or.inl h` is a proof of the goal."
   exact Or.inl h
 
 Conclusion

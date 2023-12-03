@@ -15,9 +15,9 @@ puedes empezar la prueba con `apply Iff.intro`. Lean establecerá `P → Q` y `Q
 que deben demostrarse para completar la prueba.
 "
 
-LemmaTab "Lógica"
+LemmaTab "ᶜ"
 
-LemmaDoc Iff.intro as "Iff.intro" in "Lógica"
+LemmaDoc Iff.intro as "Iff.intro" in "ᶜ"
 "Si tienes `h1 : P → Q` y `h2 : Q → P`, entonces `Iff.intro h1 h2` es una prueba de `P ↔ Q`."
 
 NewLemma Iff.intro
@@ -54,7 +54,13 @@ Statement (A B : Set U) : A ⊆ B ↔ Bᶜ ⊆ Aᶜ := by
   rewrite [comp_comp A, comp_comp B] at h2
   exact h2
 
+NewHiddenTactic constructor
+
 Conclusion
 "
 La prueba en este nivel ilustra cómo teoremas previamente demostrados pueden usarse en nuevas pruebas.
+
+Hay otra táctica que puedes usar si tu objetivo es de la forma `P ↔ Q`. En esta situación, la
+táctica `constructor` tendrá el mismo efecto que `apply Iff.intro`; es decir, establecerá dos
+nuevos obejtivos `P → Q` y `Q → P`.
 "

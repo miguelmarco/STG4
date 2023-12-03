@@ -20,7 +20,8 @@ determinará que el teorema `sub_antisymm` podría aplicarse para demostrar el o
 tuvieras pruebas de `A ⊆ B` y `B ⊆ A`. Entonces establecerá esos *dos* enunciados como objetivos.
 
 Si tu objetivo afirma que dos conjuntos son iguales, generalmente es buena idea comenzar con
-`apply sub_antisymm`.
+`apply sub_antisymm`. (Más adelante veremos otro posible enfoque para probar la igualdad de dos
+conjuntos.)
 "
 
 TacticDoc apply
@@ -36,14 +37,14 @@ objetivos.
 
 NewTactic apply
 
-LemmaTab "Teoría de conjuntos"
+LemmaTab "⊆"
 
 lemma sub_antisymm {A B : Set U} (h1 : A ⊆ B) (h2 : B ⊆ A) : A = B := Set.Subset.antisymm h1 h2
 
-LemmaDoc sub_antisymm as "sub_antisymm" in "Teoría de conjuntos"
+LemmaDoc sub_antisymm as "sub_antisymm" in "⊆"
 "Si tienes `h1 : A ⊆ B` y `h2 : B ⊆ A`, entonces `sub_antisymm h1 h2` es una prueba de `A = B`."
 
-LemmaDoc comp_comp as "comp_comp" in "Teoría de conjuntos"
+LemmaDoc comp_comp as "comp_comp" in "ᶜ"
 "Si `A` es un conjunto, entonces `comp_comp A` es una prueba de `Aᶜᶜ = A`."
 
 /-- Si $A$ es un conjunto, entonces $(A^c)^c = A$. -/

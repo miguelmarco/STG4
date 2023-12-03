@@ -30,9 +30,9 @@ Para introducir el símbolo `∩`, puedes escribir `\\inter` o `\\cap`.
 
 NewDefinition inter
 
-LemmaTab "Teoría de conjuntos"
+LemmaTab  "∩∪"
 
-LemmaDoc inter_def as "inter_def" in "Teoría de conjuntos"
+LemmaDoc inter_def as "inter_def" in  "∩∪"
 "Si tienes `x : U`, `A : Set U` y `B : Set U`, entonces `inter_def x A B` es una prueba
 de la afirmación `x ∈ A ∩ B ↔ x ∈ A ∧ x ∈ B`.
 "
@@ -48,6 +48,8 @@ Statement (x : U) (A B : Set U) (h : x ∈ A ∩ B) : x ∈ B := by
   Hint "Ahora estás en una situación parecida al nivel anterior."
   exact h.right
 
+/- Can we have no conclusion in a level?
 Conclusion
 "
 "
+-/

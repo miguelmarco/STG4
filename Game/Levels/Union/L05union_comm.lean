@@ -8,13 +8,13 @@ Title "La union is conmutativa"
 
 Introduction
 "
-Recuerda que para demostrar que dos conjuntos son iguales, solemos usar
-`apply sub_antisymm`.
+Si empiezas tu prueba con `apply sub_antisymm`, podrás usar el teorema `union_sub_swap` que probaste
+en el nivel anterior.
 "
 
-LemmaTab "Teoría de conjuntos"
+LemmaTab  "∩∪"
 
-LemmaDoc union_comm as "union_comm" in "Teoría de conjuntos"
+LemmaDoc union_comm as "union_comm" in  "∩∪"
 "Dados dos conjuntos `A` y `B`, `union_comm A B` es una prueba de que `A ∪ B = B ∪ A`."
 
 /-- Dados conjuntos $A$ y $B$, $A \cup B = B \cup A$. -/

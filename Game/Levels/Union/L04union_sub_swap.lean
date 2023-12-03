@@ -13,9 +13,9 @@ Seguiremos el mismo enfoque usado en el mundo de las interseciones. Empezaremos 
 `A ∪ B ⊆ B ∪ A`.
 "
 
-LemmaTab "Teoria de conjuntos"
+LemmaTab "∩∪"
 
-LemmaDoc union_sub_swap as "union_sub_swap" in "Teoría de conjuntos"
+LemmaDoc union_sub_swap as "union_sub_swap" in "∩∪"
 "Para conjuntos `A` y `B`, `union_sub_swap A B` es una prueba de
 `A ∪ B ⊆ B ∪ A`."
 

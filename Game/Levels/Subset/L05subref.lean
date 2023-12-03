@@ -11,15 +11,15 @@ Introduction
 ¿Cómo demuestras que un conjunto es un subconjunto de otro? Para demostrar que `A ⊆ B`,
 tienes que mostrar que si algún objeto `x` es un elemento de `A`, entonces también lo es
 un elemento de `B`. Para hacer eso, tendrás que introducir un objeto `x` en
-la prueba.
+la prueba. Este elemento `x` podría ser cualquiera, así que decimos que es *arbitrario*.
 
 En este nivel, comenzamos con un ejemplo simple de este tipo de prueba. Vamos a mostrar
 que si `A` es un conjunto, entonces `A ⊆ A`.
 "
 
-LemmaTab "Teoría de conjuntos"
+LemmaTab "⊆"
 
-LemmaDoc sub_ref as "sub_ref" in "Teoría de conjuntos"
+LemmaDoc sub_ref as "sub_ref" in "⊆"
 "
 Si tenemos `A : Set U`, entonces `sub_ref A` es una prueba de que `A ⊆ A`.
 "

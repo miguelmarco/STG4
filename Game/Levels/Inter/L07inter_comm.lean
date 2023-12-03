@@ -14,9 +14,9 @@ esto te dejará dos objetivos: `A ∩ B ⊆ B ∩ A` and `B ∩ A ⊆ A ∩ B`. 
 *ambos* teoremas usando el teorema `inter_sub_swap` del nivel anterior.
 "
 
-LemmaTab "Teoría de conjuntos"
+LemmaTab "∩∪"
 
-LemmaDoc inter_comm as "inter_comm" in "Teoría de conjuntos"
+LemmaDoc inter_comm as "inter_comm" in "∩∪"
 "Dados dos conjuntos `A` y `B`, `inter_comm A B` es una prueba de la afirmación
 `A ∩ B = B ∩ A`."
 

@@ -19,6 +19,13 @@ LemmaDoc sub_trans as "sub_trans" in "Teoría de conjuntos"
 Si tenemos `h1 : A ⊆ B` y `h2 : B ⊆ C`, entonces `sub_trans h1 h2` es una prueba de `A ⊆ C`.
 "
 
+LemmaTab "⊆"
+
+LemmaDoc sub_trans as "sub_trans" in "⊆"
+"
+Si tienes `h1 : A ⊆ B` y `h2 : B ⊆ C`, `sub_trans h1 h2` es una prueba de `A ⊆ C`.
+"
+
 /--Sea $A \subseteq B$ y $B \subseteq C$.  Entonces $A \subseteq C$. -/
 Statement sub_trans {A B C : Set U}
     (h1 : A ⊆ B) (h2 : B ⊆ C) : A ⊆ C := by

@@ -12,16 +12,17 @@ Esta prueba es más larga que las anteriores, pero no requiere nuevas tácticas 
 Símplemente tienes que ir trabajándola, usando tácticas y teoremas ya vistos.
 "
 
-LemmaTab "Teoría de conjuntos"
+LemmaTab "∩∪"
 
-LemmaDoc inter_distrib_over_union as "inter_distrib_over_union" in "Set Theory"
+LemmaDoc inter_distrib_over_union as "inter_distrib_over_union" in "∩∪"
 "Dados conjuntos `A`, `B`, y `C`, `inter_distrib_over_union A B C` es una prueba de
 `A ∩ (B ∪ C) = (A ∩ B) ∪ (A ∩ C)`."
 
 /-- Dados conjuntos $A$, $B$, y $C$, $A \cap (B \cup C) = (A \cap B) \cup (A \cap C)$. -/
 Statement inter_distrib_over_union (A B C : Set U) : A ∩ (B ∪ C) = (A ∩ B) ∪ (A ∩ C) := by
-  apply sub_antisymm
-  intro x h
+  ext x
+  apply Iff.intro
+  intro h
   rewrite [inter_def] at h
   rewrite [union_def]
   Hint (strict := true) (hidden := true) "Puede ser útil separar la segunda parte de `{h}` como una
@@ -33,7 +34,7 @@ Statement inter_distrib_over_union (A B C : Set U) : A ∩ (B ∪ C) = (A ∩ B)
   exact And.intro h.left hB
   apply Or.inr
   exact And.intro h.left hC
-  intro x h
+  intro h
   rewrite [union_def] at h
   rewrite [inter_def]
   cases' h with hB hC

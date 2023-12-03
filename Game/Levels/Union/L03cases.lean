@@ -20,7 +20,7 @@ tendrás `h2 : Q`. En ambos casos, debes demostrar el objetivo original.
 
 NewTactic cases'
 
-LemmaTab "Teoría de conjuntos"
+LemmaTab "∩∪"
 
 /-- Supón que $A \subseteq C$ y $B \subseteq C$.  Entonces $A \cup B \subseteq C$. -/
 Statement (A B C : Set U) (h1 : A ⊆ C) (h2 : B ⊆ C) : A ∪ B ⊆ C := by

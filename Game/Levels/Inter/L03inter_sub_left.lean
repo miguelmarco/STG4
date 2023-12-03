@@ -11,7 +11,7 @@ Introduction
 Deberías poder combinar ideas de los niveles anteriores para resolver este.
 "
 
-LemmaTab "Teoría de conjuntos"
+LemmaTab "∩∪"
 
 /-- Dados dos conjuntos $A$ y $B$, $A \cap B \subseteq A$. -/
 Statement (A B : Set U) : A ∩ B ⊆ A := by

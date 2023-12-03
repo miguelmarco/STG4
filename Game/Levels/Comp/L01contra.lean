@@ -56,7 +56,8 @@ Statement {A B : Set U} {x : U} (h1 : x ∈ A) (h2 : x ∉ B) : ¬A ⊆ B := by
   Hint (strict := true) (hidden := true) "`{h3} h1` es una prueba de `x ∈ B`."
   have h4 : x ∈ B := h3 h1
   Hint (strict := true) "Puedes pensar en `h2 : x ∉ B` (que es una forma abreviada de `h2 : ¬x ∈ B`)
-  como significando \"si `x ∈ B` fuera verdadero, eso conduciría a una contradicción\".
+  como significando \"si `x ∈ B` fuera verdadero, eso conduciría a una contradicción\"--dicho
+  de otro modo, `x ∈ B → False`.
   Aplicar esto a tu nueva suposición `{h4} : x ∈ B` dará la contradicción
   que necesitas. En otras palabras, `exact h2 {h4}` cerrará el objetivo."
   exact h2 h4
