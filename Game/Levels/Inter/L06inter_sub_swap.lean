@@ -12,9 +12,10 @@ En el siguiente nivel vamos a probar que la intersección es conmutativa, es dec
 `A ∩ B = B ∩ A`. Como calentamiento, en este nivel probaremos que `A ∩ B ⊆ B ∩ A`.
 "
 
-LemmaTab "∩∪
+LemmaTab "∩∪"
 
 LemmaDoc inter_sub_swap as "inter_sub_swap" in "∩∪"
+
 "Dados dos conjuntos `A` y `B`, `inter_sub_swap A B` es una prueba de
 `A ∩ B ⊆ B ∩ A`."
 
