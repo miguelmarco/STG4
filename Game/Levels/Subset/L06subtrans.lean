@@ -14,11 +14,6 @@ En este nivel, el objetivo es `A ⊆ C`.  ¿Qué te dice eso sobre los pasos a d
 
 LemmaTab "Teoría de conjuntos"
 
-LemmaDoc sub_trans as "sub_trans" in "Teoría de conjuntos"
-"
-Si tenemos `h1 : A ⊆ B` y `h2 : B ⊆ C`, entonces `sub_trans h1 h2` es una prueba de `A ⊆ C`.
-"
-
 LemmaTab "⊆"
 
 LemmaDoc sub_trans as "sub_trans" in "⊆"
