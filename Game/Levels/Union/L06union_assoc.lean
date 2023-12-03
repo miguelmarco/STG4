@@ -23,6 +23,16 @@ LemmaDoc union_assoc as "union_assoc" in "∩∪"
 "Dados conjuntos `A`, `B`, y `C`, `union_assoc A B C` es una prueba de que
 `(A ∪ B) ∪ C = A ∪ (B ∪ C)`."
 
+TacticDoc left
+"
+Si tienes que demostrar un objetivo de tipo `P ∨ Q`, la táctica `left` lo cambiará a `P`.
+"
+
+TacticDoc right
+"
+Si tienes que demostrar un objetivo de tipo `P ∨ Q`, la táctica `right` lo cambiará a `Q`.
+"
+
 /-- Dados conjuntos $A$, $B$, y $C$, $(A \cup B) \cup C = A \cup (B \cup C)$. -/
 Statement union_assoc (A B C : Set U) : (A ∪ B) ∪ C = A ∪ (B ∪ C) := by
   apply sub_antisymm
