@@ -8,7 +8,7 @@
 --import Game.Levels.Comp
 --import Game.Levels.Inter
 --import Game.Levels.Union
-import Game.Levels.FamInter
+import Game.Levels.FamUnion
 
 -- Here's what we'll put on the title screen
 Title "Juego de Teoría de Conjuntos"
@@ -86,5 +86,6 @@ Alternativamente, si experimentas problemas/errores, también puedes abrir probl
 -- Dependency AdvAddition → EvenOdd → Inequality → StrongInduction
 
 Dependency Intersecciones → Uniones
+Dependency FamInter → FamUnion
 
 MakeGame

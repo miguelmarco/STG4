@@ -29,7 +29,7 @@ NewLemma pair_def
 
 LemmaTab "{}"
 
-/-- Suppose $A$ and $B$ are sets.  Then $A \cap B = \bigcap \{A, B\}$. -/
+/-- Sean $A$ y $B$ conjuntos.  Entonces $A \cap B = \bigcap \{A, B\}$. -/
 Statement (A B : Set U) : A ∩ B = ⋂₀ {A, B} := by
   ext x
   apply Iff.intro
@@ -39,6 +39,8 @@ Statement (A B : Set U) : A ∩ B = ⋂₀ {A, B} := by
   intro S h2
   rewrite [pair_def] at h2
   cases' h2 with hA hB
+  Hint "Ahora tienes `{hA} : {S} = A`, puedes usar `rewrite [{hA}]` para reemplazar `{S}` con
+  `A` en el objetivo."
   rewrite [hA]
   exact h1.left
   rewrite [hB]
@@ -47,6 +49,8 @@ Statement (A B : Set U) : A ∩ B = ⋂₀ {A, B} := by
   rewrite [inter_def]
   rewrite [fam_inter_def] at h1
   apply And.intro
+  Hint (strict := true) (hidden := true) "Podría ser útil si tuvieras `A ∈ \{A, B}`.
+  Puedes usar `have` para probarlo."
   have h2 : A ∈ {A, B}
   rewrite [pair_def]
   apply Or.inl
@@ -57,8 +61,3 @@ Statement (A B : Set U) : A ∩ B = ⋂₀ {A, B} := by
   apply Or.inr
   rfl
   exact h1 B h2
-
-Conclusion
-"
-
-"

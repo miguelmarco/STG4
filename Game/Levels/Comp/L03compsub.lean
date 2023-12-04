@@ -44,7 +44,7 @@ Statement comp_sub_of_sub {A B : Set U} (h1 : A ⊆ B) : Bᶜ ⊆ Aᶜ := by
   intro x h2
   Hint "Ahora `comp_def {x} A` es una prueba de `{x} ∈ Aᶜ ↔ {x} ∉ A`, que nos dice que podemos
   reescribir el objetivo `{x} ∈ Aᶜ` como `{x} ∉ A`.  Para hacer esta reescritura,
-  usa la táctica `rewrite [comp_def x A]`."
+  usa la táctica `rewrite [comp_def {x} A]`."
   rewrite [comp_def x A]
   Hint "La táctica `rewrite` es suficientemente inteligente para deducir algunas cosas por sí misma.
   Si hubieras escrito sólamente `rewrite [comp_def]`, Lean habría deducido como aplicar el teorema

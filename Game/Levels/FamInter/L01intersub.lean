@@ -30,7 +30,8 @@ DefinitionDoc famint as "⋂₀"
 teclea `\\I0`."
 
 DefinitionDoc all as "∀"
-"`∀ x, ...` significa \"para todo `x`, ...\".  Para introducir el símbolo `∀`, teclea `\\forall`."
+"Si `P x` representa una afirmación sobre `x`, entonves `∀ x, P x` significa \"para todo `x`, se
+cumple `P x`\".  Para introducir el símbolo `∀`, teclea `\\forall`."
 
 NewDefinition famint all
 
@@ -65,6 +66,7 @@ Statement (A : Set U) (F : Set (Set U)) (h1 : A ∈ F) : ⋂₀ F ⊆ A := by
 Conclusion
 "
 Los últimos dos pasos podrían haberse combinado en un único paso. En general, si tienes
-`h1 : A ∈ F` y `h2 : ∀ S ∈ F, ...S...`, entonces `h2 A` es una prueba de `A ∈ F → ...A...`, y
-aplicando esa prueba a `h1` tenemos que `h2 A h1` es una prueba de `...A...`.
+`h1 : A ∈ F` y `h2 : ∀ S ∈ F, P S`, donde `P S` es alguna afirmación sobre `S`, entonces `h2 A` es
+una prueba de `A ∈ F →  P A`, y aplicando esa prueba a `h1` tenemos que `h2 A h1` es una prueba de
+`P A`. Por ejemplo, si  `h1 : A ∈ F` y `h2 : ∀ S ∈ F, x ∈ S`, `h2 A h1` es una prueba de `x ∈ A`.
 "

@@ -30,10 +30,10 @@ Statement (A : Set U) (F G : Set (Set U)) (h1 : ∀ S ∈ F, A ∪ S ∈ G) : �
   rewrite [union_def]
   Hint (strict := true) "Si `{x} ∈ A`, el objetivo es fácil de probar. Esto parece sugerir
   partir la prueba en casos dependiendo de si `{x} ∈ A` o no. Puedes hacer esto con la táctica
-  `by_cases h3 : {x} ∈ A`."
-  by_cases h3 : x ∈ A
+  `by_cases hA : {x} ∈ A`."
+  by_cases hA : x ∈ A
   Hint "El primer caso es el fácil."
-  exact Or.inl h3
+  exact Or.inl hA
   Hint "Para el segundo caso, ¿cual de las posibilidades del objetivo crees que puedes probar?
   Puedes usar `apply Or.inl` o `apply Or.inr` (o las tácticas equivalentes `left` y `right`)
   para especificar cual de las dos opciones quieres demostrar."
@@ -48,12 +48,14 @@ Statement (A : Set U) (F G : Set (Set U)) (h1 : ∀ S ∈ F, A ∪ S ∈ G) : �
   Hint (strict := true) (hidden := true) "Date cuenta de que puedes aplicar `h2` a `(A ∪ {S})`."
   have h6 : x ∈ A ∪ S := h2 (A ∪ S) h5
   rewrite [union_def] at h6
-  cases' h6 with hA hS
+  cases' h6 with hA2 hS
   by_contra h6
-  exact h3 hA
+  exact hA hA2
   exact hS
 
 Conclusion
 "
-
+Has completado el mundo de las intersecciones de familias. Como puedes adivinar, también se pueden
+tomar uniones de familias. ¿Puedes pensar cómo definirlas? Continua al mundo de las uniones de
+familias para verlo.
 "

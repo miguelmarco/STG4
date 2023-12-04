@@ -22,26 +22,23 @@ Statement (F G : Set (Set U)) : ⋂₀ (F ∪ G) = (⋂₀ F) ∩ (⋂₀ G) := 
   apply And.intro
   rewrite [fam_inter_def]
   intro S h2
-  have h3 : S ∈ F ∪ G := Or.inl h2
-  exact h1 S h3
+  Hint "Este es un enfoque que podrías probar:  si tuvieras `hFG : {S} ∈ F ∪ G`,
+  podrías probar el objetivo con `{h1} {S} hFG`.  Así que si usas la táctica `apply {h1} {S}`, Lean
+  verá que `{h1} {S}` se puede aplicar a una prueba de `{S} ∈ F ∪ G` para cerrar el objetivo,
+  así que establecerá `{S} ∈ F ∪ G` coimo tu nuevo objetivo."
+  apply h1 S
+  rewrite [union_def]
+  exact Or.inl h2
   rewrite [fam_inter_def]
   intro S h2
-  have h3 : S ∈ F ∪ G := Or.inr h2
-  exact h1 S h3
+  apply h1 S
+  exact Or.inr h2
   intro h1
   rewrite [fam_inter_def]
   intro S h2
   rewrite [inter_def] at h1
-  have hxF := h1.left
-  have hxG := h1.right
-  rewrite [fam_inter_def] at hxF
-  rewrite [fam_inter_def] at hxG
+  rewrite [fam_inter_def, fam_inter_def] at h1
   rewrite [union_def] at h2
   cases' h2 with hSF hSG
-  exact hxF S hSF
-  exact hxG S hSG
-
-Conclusion
-"
-
-"
+  exact h1.left S hSF
+  exact h1.right S hSG

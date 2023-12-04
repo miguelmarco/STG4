@@ -13,9 +13,13 @@ una nueva táctica en Lean: `cases'`.
 "
 
 TacticDoc cases'
-"Si tienes una hipótesos `h : P ∨ Q`, entonces la táctica `cases' h with h1 h2` descompondrá
-tu prueba en casos. En el caso 1, tendrás la nueva hipótesis `h1 : P`, y en el caso 2
-tendrás `h2 : Q`. En ambos casos, debes demostrar el objetivo original.
+"
+En este juego, hay dos situaciones en las que usaremos la táctica `cases'`.
+* Si tienes una hipótesis `h : P ∨ Q`,la táctica `cases' h with h1 h2` partirá la demostración en
+dos casos. En el primer caso tendrás la hipótesis `h1 : P`, y en el segundo caso tendrás `h2 : Q`.
+En ambos casos tendrás que demostrar el objetivo original.
+* Si tienes una hipótesis `h : ∃ x, P x`, la táctica `cases' h with w hw` introducirá un objeto
+`w` y una nueva hipótesis `hw : P w`.
 "
 
 NewTactic cases'
