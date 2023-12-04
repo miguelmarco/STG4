@@ -4,25 +4,25 @@ variable {U : Type}
 
 World "FamInter"
 Level 3
-Title "Intersection of a Pair"
+Title "Intersección de un par"
 
 Introduction
 "
-This level shows that family intersections are a generalization of the intersections
-we studied in Intersection World.  You'll prove that if `A` and `B` are sets, then
-`A ∩ B` is equal to the intersection of the family of sets that contains just `A` and
-`B` and nothing else.
+Este nivel muestra que las intersecciones de familias generalizan las intersecciones
+de dos conjuntos que vimos en el mundo de las intersecciones. Veremos que si `A` y `B`
+son conjuntos, `A ∩ B` es lo mismo que la intersección de la familia formada exactamente
+por `A` y `B`.
 
-We'll need notation for the family of sets consisting of just `A` and `B`; we'll denote
-this family by `{A, B}`.  And, as usual, we'll need a theorem stating the definition of
-this notation.  For any sets ``S`, `A`, and `B`, `pair_def S A B` is a proof of the
-statement `S ∈ {A, B} ↔ S = A ∨ S = B`.
+Necesitamos una notación para esta familia formada exactamaente por `A` y `B`; la
+denotaremos por `{A, B}`. Como de costumbre, necesitamos in teorema correspondiente
+a esta notación. Para conjuntos `S`, `A`, y `B`, `pair_def S A B` es una prueba de
+`S ∈ {A, B} ↔ S = A ∨ S = B`.
 "
 
 lemma pair_def (S A B : Set U) : S ∈ {A, B} ↔ S = A ∨ S = B := by rfl
 
 LemmaDoc pair_def as "pair_def" in "{}"
-"For any sets `S`, `A`, and `B`, `pair_def S A B` is a proof of the statement
+"Para conjuntos `S`, `A`, y `B`, `pair_def S A B` es una prueba de
 `S ∈ {A, B} ↔ S = A ∨ S = B`."
 
 NewLemma pair_def

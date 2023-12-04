@@ -4,43 +4,45 @@ variable {U : Type}
 
 World "FamInter"
 Level 2
-Title "Intersection of Larger Family is Smaller"
+Title "La intersección de una familia mayor es más pequeña."
 
 Introduction
 "
-In this level we have two families of sets, `F` and `G`, with `F ⊆ G`.  That means that
-`⋂₀ G` is the intersection of a family of sets that includes all the sets in `F`, plus
-perhaps more sets.  You're going to prove that intersecting this larger collection of sets
-leads to a smaller result; more precisely, you're going to prove that `⋂₀ G ⊆ ⋂₀ F`.
+En este nivel, tenemos dos familias de conjuntos, `F` y `G`, con `F ⊆ G`. Esto significa que
+`⋂₀ G` es la intersección de una familia de conjuntos que incluye todos los conjuntos en `F`,
+y quizás más conjuntos. Vas a demostrar que la intersección de esta colección más grande de
+conjuntos conduce a un resultado más pequeño; más precisamente, vas a demostrar que
+`⋂₀ G ⊆ ⋂₀ F`.
 
-Of course, by now you know how to start a proof that one set is a subset of another.
+Por supuesto, a estas alturas sabes cómo comenzar una demostración de que un conjunto es un
+subconjunto de otro.
 "
 
-/-- Suppose $F$ and $G$ are families of sets and $F \subseteq G$.
-Then $\bigcap G \subseteq \bigcap F$. -/
+/-- Supón que $F$ y $G$ son familias de conjuntos, y $F \subseteq G$.
+Entonces $\bigcap G \subseteq \bigcap F$. -/
 Statement (F G : Set (Set U)) (h1 : F ⊆ G) : ⋂₀ G ⊆ ⋂₀ F := by
   intro x h2
-  Hint (hidden := true) "As usual, if you're not sure how to proceed then writing
-  out definitions can help."
+  Hint (hidden := true) "Como de costumbre, si no sabes cómo empezar, reescribir las definiciones
+  puede ser útil."
   rewrite [fam_inter_def]; rewrite [fam_inter_def] at h2
-  Hint "Now your goal starts with `∀ S`.  To prove it, you'll need to introduce
-  a set `S` into the proof, using the tactic `intro S`.  Recall that the set `S` is
-  *arbitrary*--that is, `S` could stand for any set--so whatever we prove about `S` will
-  be true for *all* sets `S`."
+  Hint "Ahora tu objetivo empieza con `∀ S`.  Para probarlo, tendrás que introducir un conjunto
+  `S`, usando la táctica `intro S`.  Recuerda que el conjunto `S` es
+  *arbitrario*--es decir, `S` podría ser cualquier conjunto--así que lo que probemos para `S` será
+  cierto para *todos* los conjuntos `S`."
   intro S
-  Hint (hidden := true) "Now your goal is an if-then statement; that means `intro` is
-  appropriate again, to introduce `{S} ∈ F` as a new assumption."
+  Hint (hidden := true) "Ahora to objetivo es una implicación; eso significa que `intro` vuelve a
+  ser la táctica apropiada para introducir `{S} ∈ F` como una nueva hipótesis."
   intro h3
-  Hint (hidden := true) "It looks like `{h2}` could get you to the goal, if only
-  you knew that `{S} ∈ G`.  Can you prove that?"
+  Hint (hidden := true) "Parece que `{h2}` podría llevarte al objetivo, si supieras que
+  `{S} ∈ G`. ¿Puedes probarlo?"
   have h4 : S ∈ G := h1 h3
-  Hint "You can now combine {h2} and {h4} to reach the goal in one step."
-  Hint (hidden := true) "`{h2} {S} {h4}` is now a proof of the goal."
+  Hint "Ahora puedes combinar {h2} y {h4} para llegar al objetivo en un paso."
+  Hint (hidden := true) "`{h2} {S} {h4}` es una prueba del objetivo."
   exact h2 S h4
 
 Conclusion
 "
-Note that, as we saw in proofs that one set is a subset of another, the two `intro` steps
-could be combined into one step.  Click on `intro` in the list of tactics on the right for
-further details.
+Fíjate que, igual que vimos en otras pruebas de que un conjunto está contenido en otro, los dos
+`intro` se pueden combinar en un solo paso. Pulsa en `intro` en la lista de tácticas a la derecha
+para más detalles.
 "

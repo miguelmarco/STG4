@@ -4,50 +4,48 @@ variable {U : Type}
 
 World "FamInter"
 Level 6
-Title "Intersection of a Family of Unions"
+Title "Intersección de una familia de uniones"
 
 Introduction
 "
-In this level you'll use a new kind of proof by cases.  For any statement `P`, the
-tactic `by_cases h : P` will break the proof into two cases.  In the first case, the new
-assumption `h : P` is added to the list of assumptions, and in second the new
-assumption `h : ¬P` is added.  Since `P` must be either true or false, these two cases cover
-all possibilities.
+En este nivel, usarás un nuevo tipo de demostración por casos. Para una afirmación `P`, la
+táctica `by_cases h : P` separará la demostración en dos casos. En el primer caso, se añade una
+nueva hipótesis `h : P`; y en el segundo, se añade la hipótesis `h : ¬P` en su lugar.
+Como `P` debe ser cierta o falsa, estos dos casos cubren todas las posibilidades.
 "
 
 TacticDoc by_cases
 "
-The tactic `by_cases h : P` breaks the proof into two cases.  In the first case, the
-assumption `h : P` is added to the list of assumptions, and in the second case, the
-assumption `h : ¬P` is added.
+La táctica `by_cases h : P` parte la demostración en dos casos. En el primer caso, se añade la
+hipótesis `h : P`; y en el segundo caso, se añade `h : ¬P`.
 "
 
 NewTactic by_cases
 
-/-- Suppose $A$ is a set, $F$ and $G$ are families of sets, and for every set $S$ in $F$,
-$A \cup S \in G$.  Then $\bigcap G \subseteq A \cup (\bigcap F)$.-/
+/-- Supón que $A$ es un conjunto, $F$ y $G$ son familias de conjuntos, y para cada conjunto $S$ en
+$F$, $A \cup S \in G$. Entonces $\bigcap G \subseteq A \cup (\bigcap F)$.-/
 Statement (A : Set U) (F G : Set (Set U)) (h1 : ∀ S ∈ F, A ∪ S ∈ G) : ⋂₀ G ⊆ A ∪ (⋂₀ F) := by
   intro x h2
-  Hint "Writing out the meaning of the goal will make the proof easier to understand."
+  Hint "Reescribir el significado del objetivo puede facilitar entender la prueba."
   rewrite [union_def]
-  Hint (strict := true) "If `{x} ∈ A`, then the goal is easy to prove.  This suggests breaking the proof into
-  cases depending on whether or not `{x} ∈ A`.  You can do this with the tactic
+  Hint (strict := true) "Si `{x} ∈ A`, el objetivo es fácil de probar. Esto parece sugerir
+  partir la prueba en casos dependiendo de si `{x} ∈ A` o no. Puedes hacer esto con la táctica
   `by_cases h3 : {x} ∈ A`."
   by_cases h3 : x ∈ A
-  Hint "The first case is the easy one."
+  Hint "El primer caso es el fácil."
   exact Or.inl h3
-  Hint "For the second case, which half of the goal do you think you should try to prove?
-  You can use `apply Or.inl` or `apply Or.inr` (or the equivalent tactics `left` or `right`)
-  to specify what goal you're going to prove."
+  Hint "Para el segundo caso, ¿cual de las posibilidades del objetivo crees que puedes probar?
+  Puedes usar `apply Or.inl` o `apply Or.inr` (o las tácticas equivalentes `left` y `right`)
+  para especificar cual de las dos opciones quieres demostrar."
   apply Or.inr
   rewrite [fam_inter_def]
   intro S h4
-  Hint (strict := true) (hidden := true) "Now use `h1`."
+  Hint (strict := true) (hidden := true) "Ahora usa `h1`."
   have h5 : A ∪ S ∈ G := h1 S h4
-  Hint (strict := true) (hidden := true) "You haven't used `h2` yet.  If you don't see how to use it,
-  write out its definition."
+  Hint (strict := true) (hidden := true) "Aún no has usado `h2`. Si no ves cómo usarlo, escribe su
+  definición."
   rewrite [fam_inter_def] at h2
-  Hint (strict := true) (hidden := true) "Note that you can apply `h2` to `(A ∪ {S})`."
+  Hint (strict := true) (hidden := true) "Date cuenta de que puedes aplicar `h2` a `(A ∪ {S})`."
   have h6 : x ∈ A ∪ S := h2 (A ∪ S) h5
   rewrite [union_def] at h6
   cases' h6 with hA hS

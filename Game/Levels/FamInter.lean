@@ -5,19 +5,21 @@ import Game.Levels.FamInter.L06eltwiseunion  --It imports all previous levels.
 
 -/
 World "FamInter"
-Title "Family Intersection World"
+Title "Mundo de intersección de familias"
 
 Introduction
-"So far the elements of all of our sets have been objects in the universe `U`.  But
-sets can contain other kinds of objects!  In the next two worlds, we will work with sets whose
-elements are *sets of objects from `U`*.  We will call these *families of sets* from `U`.  To
-indicate that `F` is a family of sets from `U`, we write `F : Set (Set U)`.
+"Hasta ahora, los elementos de todos nuestros conjuntos han sido objetos en el universo `U`. Pero
+los conjuntos pueden contener otros tipos de objetos. En los dos mundos siguientes,
+trabajaremos con conjuntos cuyos elementos son conjuntos de objetos de `U`. Llamaremos a estos
+conjuntos *familias de conjuntos* de `U`. Para indicar que `F` es una familia de conjuntos de
+`U`, escribimos `F: Set (Set U)`.
 
-For example, suppose `U` contains the people in a certain club, and we want to form a committee
-consisting of five members of the club.  The set of all possible committees is a family
-of sets from `U`.  Each element of this family is a set containing five club members.
+Por ejemplo, supongamos que `U` contiene a las personas en cierto club, y queremos formar un
+comité compuesto por cinco miembros del club. El conjunto de todos los comités posibles es una
+familia de conjuntos de `U`. Cada elemento de esta familia es un conjunto que contiene a cinco
+miembros del club.
 
-In this world we extend the idea of intersections to families of sets.  If `F` is a family of
-sets from `U`, then the *intersection* of the family `F` is the set of all objects from `U`
-that belong to every element of `F`.
+En este mundo extendemos la idea de intersecciones a familias de conjuntos. Si `F` es una
+familia de conjuntos de `U`, entonces la *intersección* de la familia `F` es el conjunto formado
+por de `U` que pertenecen a todos los elementos de `F`.
 "

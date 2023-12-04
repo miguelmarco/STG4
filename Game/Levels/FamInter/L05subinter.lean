@@ -4,16 +4,16 @@ variable {U : Type}
 
 World "FamInter"
 Level 5
-Title "Subset of an Intersection"
+Title "Subconjntos de una intersección"
 
 Introduction
 "
-If `A` is a set and `F` is a family of sets, under what circumstances is it the case
-that `A ⊆ ⋂₀ F`?  In this level you'll discover the answer to that question.
+Si `A` es un conjunto y `F` es una familia de conjuntos, ¿bajo qué circunstancias se cumple que
+`A ⊆ ⋂₀ F`?  Veamos la respuesta a esta pregunta.
 "
 
-/-- Suppose $A$ is a set and $F$ is a family of sets.  Then $A \subseteq \bigcap F$ if
-and only if $A$ is a subset of every element of $F$.-/
+/-- Supón que $A$ es un conjunto y $F$ una familia de conjuntos. Entonces $A \subseteq \bigcap F$ si
+y solo si $A$ está contenido en cada elemento de $F$.-/
 Statement (A : Set U) (F : Set (Set U)) : A ⊆ ⋂₀ F ↔ ∀ B ∈ F, A ⊆ B := by
   apply Iff.intro
   intro h1

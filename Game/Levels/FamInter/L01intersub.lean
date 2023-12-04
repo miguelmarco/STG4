@@ -4,66 +4,67 @@ variable {U : Type}
 
 World "FamInter"
 Level 1
-Title "Family Intersection is Subset"
+Title "La intersección de una familia es un subconjunto"
 
 Introduction
 "
-In mathematical writing, the intersection of the family $F$ is usually denoted $\\bigcap F$.
-In Lean, the intersection of a family `F` is denoted `⋂₀ F`.  (You can enter the symbol
-`⋂₀` by typing `\\I0`.)
+En lenguaje matemático, la intersección de la familia $F$ suele denotarse como $\\bigcap F$.
+En Lean, la intersección de una familia `F` se denota como `⋂₀ F`. (Puedes ingresar el símbolo
+`⋂₀` escribiendo `\\I0`).
 
-Suppose we have `F : Set (Set U)` and `x : U`.  Then `x ∈ ⋂₀ F` means that for every set `S`, if
-`S` is in `F`, then `x ∈ S`.  To write this statement in Lean, we write `∀ S, S ∈ F → x ∈ S`.
-Lean abbreviates this statement as `∀ S ∈ F, x ∈ S`.
-The symbol `∀` is called the *universal quantifier*, and you can enter it in Lean by typing
+Supongamos que tenemos `F: Set (Set U)` y `x: U`. Entonces, `x ∈ ⋂₀ F` significa que para cada
+conjunto `S`, si `S` está en `F`, entonces `x ∈ S`. Para escribir esta afirmación en Lean,
+escribimos `∀ S, S ∈ F → x ∈ S`. Lean abrevia esta afirmación como `∀ S ∈ F, x ∈ S`.
+El símbolo `∀` se llama el *cuantificador universal*, y puedes ingresarlo en Lean escribiendo
 `\\forall`.
 
-As with other set theory operations, we have a theorem that expresses this definition.  If
-`F : Set (Set U)` and `x : U`, then `fam_inter_def x F` is a proof of the statement
-`x ∈ ⋂₀ F ↔ ∀ S ∈ F, x ∈ S`.
+Al igual que con otras operaciones de teoría de conjuntos, tenemos un teorema que expresa esta
+definición. Si `F: Set (Set U)` y `x: U`, entonces `fam_inter_def x F` es una prueba de la
+afirmación `x ∈ ⋂₀ F ↔ ∀ S ∈ F, x ∈ S`.
 
-In this level, you'll try out these ideas.
+En este nivel, manejarás estas ideas.
 "
 
 DefinitionDoc famint as "⋂₀"
-"`⋂₀ F` is the intersection of the family of sets `F`.  To enter the symbol `⋂₀`, type `\\I0`."
+"`⋂₀ F` es la intersección de la familia de conjuntos `F`. Para introducir el símbolo `⋂₀`,
+teclea `\\I0`."
 
 DefinitionDoc all as "∀"
-"`∀ x, ...` means \"for all `x`, ...\".  To enter the symbol `∀`, type `\\forall`."
+"`∀ x, ...` significa \"para todo `x`, ...\".  Para introducir el símbolo `∀`, teclea `\\forall`."
 
 NewDefinition famint all
 
 lemma fam_inter_def (x : U) (F : Set (Set U)) : x ∈ ⋂₀ F ↔ ∀ S ∈ F, x ∈ S := by rfl
 
 LemmaDoc fam_inter_def as "fam_inter_def" in "⋂₀⋃₀"
-"If `F : Set (Set U)` and `x : U`, then `fam_inter_def x F` is a proof of the statement
+"Si `F : Set (Set U)` y `x : U`, entonces `fam_inter_def x F` es una prueba de la afirmación
 `x ∈ ⋂₀ F ↔ ∀ S ∈ F, x ∈ S`."
 
 NewLemma fam_inter_def
 
 LemmaTab "⋂₀⋃₀"
 
-/-- Suppose $F$ is a family of sets and $A \in F$.  Then $\bigcap F \subseteq A$. -/
+/-- Supón que $F$ es una familia de conjuntos, y $A \in F$.  Entonces $\bigcap F \subseteq A$. -/
 Statement (A : Set U) (F : Set (Set U)) (h1 : A ∈ F) : ⋂₀ F ⊆ A := by
   intro x h2
-  Hint "As usual, you may find it helpful to use the `rewrite` tactic to write out the
-  definition of `{x} ∈ ⋂₀ F`, using the theorem `fam_inter_def`."
+  Hint "Como de costumbre, puede ser útil usar la táctica `rewrite` para reescribir la definición de
+  `{x} ∈ ⋂₀ F`, usando el teorema `fam_inter_def`."
   rewrite [fam_inter_def] at h2
-  Hint "Remember that `{h2} : ∀ S ∈ F, {x} ∈ S` is an abbreviation for
-  `{h2} : ∀ S, S ∈ F → {x} ∈ S`.  Since `∀` means \"for all\", `{h2}` can be applied to any
-  set--that is, we can plug in any set for `S` in `{h2}`.
-  In particular, applying it to the set `A`, we can conclude that `A ∈ F → {x} ∈ A`.
-  To apply `{h2}` to `A`, we just write `{h2}` followed by `A`, with a space between them.
-  Thus, your next step can be `have h3 : A ∈ F → {x} ∈ A := {h2} A`."
+  Hint "Recuerda que `{h2} : ∀ S ∈ F, {x} ∈ S` es una forma abreviada de
+  `{h2} : ∀ S, S ∈ F → {x} ∈ S`.  Como `∀` significa \"para todo\", se puede aplicar `{h2}`
+  a cualquier conjunto--es decir, podemos proporcionar cualquier conjunto como `S` en `{h2}`.
+  En particular, aplicándolo al conjunto `A`, concluimos que `A ∈ F → {x} ∈ A`.
+  Para aplicar `{h2}` a `A`, símplemente escribimos `{h2}` seguido de `A`, con un espacio en medio.
+  Así, tu siguiente paso puede ser `have h3 : A ∈ F → {x} ∈ A := {h2} A`."
   have h3 : A ∈ F → x ∈ A := h2 A
-  Hint "Since we also have `h1 : A ∈ F`, you can apply `{h3}` to `h1` to prove that `{x} ∈ A`.
-  This means that `{h3} h1` is a proof of the goal."
+  Hint "Como también tenemos `h1 : A ∈ F`, puedes aplicar `{h3}` a `h1` para probar que `{x} ∈ A`.
+  Esto significa que `{h3} h1` es una prueba del objetivo."
   exact h3 h1
 
 
 Conclusion
 "
-The last two steps could have been combined into one step.  In general, if you have
-`h1 : A ∈ F` and `h2 : ∀ S ∈ F, ...S...`, then `h2 A` is a proof of `A ∈ F → ...A...`, and
-applying that proof to `h1` we conclude that `h2 A h1` is a proof of `...A...`.
+Los últimos dos pasos podrían haberse combinado en un único paso. En general, si tienes
+`h1 : A ∈ F` y `h2 : ∀ S ∈ F, ...S...`, entonces `h2 A` es una prueba de `A ∈ F → ...A...`, y
+aplicando esa prueba a `h1` tenemos que `h2 A h1` es una prueba de `...A...`.
 "

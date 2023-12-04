@@ -4,14 +4,14 @@ variable {U : Type}
 
 World "FamInter"
 Level 4
-Title "Intersection of a Union of Families"
+Title "Intersección de una unión de familias"
 
 Introduction
 "
-If `F` and `G` are families of sets, what is `⋂₀ (F ∪ G)`?  In this level, you'll find out!
+Si `F` y `G` son familias de conjuntos, ¿qué es `⋂₀ (F ∪ G)`? En este nivel lo veremos.
 "
 
-/-- Suppose $F$ and $G$ are families of sets.  Then
+/-- Supón que $F$ y $G$ son familias de conjuntos. Entonces
 $\bigcap (F \cup G) = (\bigcap F) \cap (\bigcap G)$. -/
 Statement (F G : Set (Set U)) : ⋂₀ (F ∪ G) = (⋂₀ F) ∩ (⋂₀ G) := by
   ext x
