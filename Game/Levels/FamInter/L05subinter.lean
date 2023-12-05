@@ -12,8 +12,8 @@ Si `A` es un conjunto y `F` es una familia de conjuntos, ¿bajo qué circunstanc
 `A ⊆ ⋂₀ F`?  Veamos la respuesta a esta pregunta.
 "
 
-/-- Supón que $A$ es un conjunto y $F$ una familia de conjuntos. Entonces $A \subseteq \bigcap F$ si
-y solo si $A$ está contenido en cada elemento de $F$.-/
+/-- Supón que $A$ es un conjunto y $F$ una familia de conjuntos. Entonces $A$ es un subconjunto de
+$\bigcap F$ si y solo si $A$ está contenido en cada elemento de $F$.-/
 Statement (A : Set U) (F : Set (Set U)) : A ⊆ ⋂₀ F ↔ ∀ B ∈ F, A ⊆ B := by
   apply Iff.intro
   intro h1

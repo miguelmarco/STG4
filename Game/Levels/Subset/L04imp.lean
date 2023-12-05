@@ -28,9 +28,9 @@ Hay dos situaciones en las que puedes usar la táctica `intro`:
 - Si estás demostrando una afirmación de la forma `P → Q`, entonces puedes usar
 la táctica `intro h` para introducir la suposición `h : P` y establecer `Q` como la meta. Asegúrate
 de usar un identificador que no esté en uso.
-- Si estás demostrando una afirmación de la forma `∀ x, ...`, entonces puedes usar
-la táctica `intro x` para introducir un nuevo objeto `x` en la prueba. Asegúrate de
-usar un nombre de variable que no esté en uso.
+- Si estás demostrando una afirmación de la forma `∀ x, P x`, donde `P x` es una afirmación sobre
+`x`, entonces puedes usar la táctica `intro x` para introducir un nuevo objeto `x` en la prueba.
+Asegúrate de usar un nombre de variable que no esté en uso. El objetivo pasará a ser `P x`.
 
 Puedes realizar múltiples introducciones en un solo paso: por ejemplo, `intro x h` tiene el mismo
 efecto que realizar `intro x` seguido de `intro h`.

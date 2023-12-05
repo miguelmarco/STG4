@@ -26,7 +26,7 @@ Statement (F G : Set (Set U)) (h1 : F ⊆ G) : ⋃₀ F ⊆ ⋃₀ G := by
   ya que no estamos en una demostración por casos. En cualquier caso, `cases'` es la táctica que
   hace lo que necesitamos.)"
   cases' h2 with B hB
-  Hint (hidden := true) "¿Ves por qué `B` es el valor de `S` que hay que usar en el objetivo? Tu
+  Hint (hidden := true) "¿Ves por qué `B` es el testigo que hay que usar para `S` en el objetivo? Tu
   próximo paso puede ser `apply Exists.intro B` o `use B`."
   apply Exists.intro B
   have h2 : B ∈ G := h1 hB.left

@@ -30,8 +30,8 @@ DefinitionDoc famint as "⋂₀"
 teclea `\\I0`."
 
 DefinitionDoc all as "∀"
-"Si `P x` representa una afirmación sobre `x`, entonves `∀ x, P x` significa \"para todo `x`, se
-cumple `P x`\".  Para introducir el símbolo `∀`, teclea `\\forall`."
+"Si `P x` representa una afirmación sobre un objeto `x`, entonces `∀ x, P x` significa \"para todo
+`x`, se cumple `P x`\".  Para introducir el símbolo `∀`, teclea `\\forall`."
 
 NewDefinition famint all
 
@@ -70,3 +70,4 @@ Los últimos dos pasos podrían haberse combinado en un único paso. En general,
 una prueba de `A ∈ F →  P A`, y aplicando esa prueba a `h1` tenemos que `h2 A h1` es una prueba de
 `P A`. Por ejemplo, si  `h1 : A ∈ F` y `h2 : ∀ S ∈ F, x ∈ S`, `h2 A h1` es una prueba de `x ∈ A`.
 "
+https://sites.google.com/view/introductiontotda/home?pli=1

@@ -52,10 +52,11 @@ Statement (A : Set U) (F : Set (Set U)) (h1 : A ∈ F) : A ⊆ ⋃₀ F := by
   intro x h2
   rewrite [fam_union_def]
   Hint "Recuerda que el objetivo `∃ S ∈ F, {x} ∈ S` es una abreviatura de
-  `∃ S, S ∈ F ∧ {x} ∈ S`. Como vimos en el ninvel anterior, podemos probar esto encontrando un valor
-  concreto para `S` para el que la afirmación `S ∈ F ∧ {x} ∈ S` se cumpla. si nos fijamos en
+  `∃ S, S ∈ F ∧ {x} ∈ S`. Como vimos en el nivel anterior, podemos probar esto encontrando un
+  testigo--es decir, un valor
+  concreto para `S` para el que la afirmación `S ∈ F ∧ {x} ∈ S` se cumpla. Si nos fijamos en
   `h1` y `{h2}`, parece que `S = A` podría servir. Esto nos sugiere una forma de seguir:
-  `Exists.intro A hA` probaría el ibjetivo, si `hA` fuera una demostración de `A ∈ F ∧ {x} ∈ A`.
+  `Exists.intro A hA` probaría el objetivo, si `hA` fuera una demostración de `A ∈ F ∧ {x} ∈ A`.
   Dicho de otro modo, si aplicamos `Exists.intro A` a una prueba de `A ∈ F ∧ {x} ∈ A`, tendremos
   una prueba del objetivo. Así que si usas la táctica `apply Exists.intro A`, Lean establecerá
   `A ∈ F ∧ {x} ∈ A` como tu nuevo objetivo."

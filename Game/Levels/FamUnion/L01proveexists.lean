@@ -15,8 +15,9 @@ y lo puedes introducir tecleando `\\exists`.
 
 La forma más fácil de probar la afirmación `∃ x, P x` es especificar un valor para `x`, y
 proporcionar una prueba de `P x` para ese valor `x`. El teorema que te permite hacer eso se llama
-`Exists.intro`.  Si tienes `h : P a`, para algún objeto `a`, entonces `Exists.intro a h` es una
-prueba de `∃ x, P x`. En este nivel usaremos este teorema.
+`Exists.intro`.  Si tienes `h : P a`, para algún objeto `a` (el objeto `a` se llama a veces *testigo*
+de la afirmación de existencia), entonces `Exists.intro a h` es una prueba de `∃ x, P x`. En este
+nivel usaremos este teorema.
 "
 
 DefinitionDoc ex as "∃"
@@ -43,5 +44,10 @@ Statement (A : Set U) : ∃ S, S ⊆ A := by
 
 Conclusion
 "
+Por cierto, otro conjunto que podría haber servido como testigo para la afirmación de existencia en
+este caso es el conjunto vacío, denotado `∅`. Sin embargo, para justificar el uso de ese testigo
+tendrías que probar `∅ ⊆ A`. Como ya tenemos el teorema `sub_ref`, era más fácil usar `A` como
+testigo.
+
 Ahora que sabes probar afirmaciones de existencia, puedes empezar a trabajar con uniones de familias.
 "
