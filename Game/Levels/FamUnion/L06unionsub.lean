@@ -4,23 +4,23 @@ variable {U : Type}
 
 World "FamUnion"
 Level 6
-Title "Union Subset of a Set"
+Title "Uniones contenidas en conjuntos"
 
 Introduction
 "
-Suppose `A` is a set and `F` is a family of sets.  In this level you'll determine the conditions
-under which `⋃₀ F` is a subset of `A`.
+Supón que `A` es un conjunto y `F` una familia de conjuntos. En este nivel verás bajo qué condiciones
+`⋃₀ F` está contenido en `A`.
 "
 
-/-- Suppose $A$ is a set and $F$ is a family of sets.  Then $\bigcup F$ is a subset of $A$
-if and only if every element of $F$ is a subset of $A$. -/
+/-- Supón que $A$ es un conjunto y $F$ es una familia de conjuntos. Entonces $\bigcup F$ está
+contenido en $A$ si y solo si todo elemento de $F$ está contenido en $A$. -/
 Statement (A : Set U) (F : Set (Set U)) : ⋃₀ F ⊆ A ↔ ∀ B ∈ F, B ⊆ A := by
   apply Iff.intro
   intro h1
   intro B h2
   intro x h3
-  Hint (hidden := true) "Notice that `{h1}` could be applied to a proof of `{x} ∈ ⋃₀ F` to
-  prove the goal.  That means that `apply {h1}` will set `{x} ∈ ⋃₀ F` as the goal."
+  Hint (hidden := true) "Date cuenta de que `{h1}` podría aplicarse a una prueba de `{x} ∈ ⋃₀ F`
+  para probar el objetivo. Eso significa que `apply {h1}` cambiará el objetivo a `{x} ∈ ⋃₀ F`."
   apply h1
   rewrite [fam_union_def]
   use B
