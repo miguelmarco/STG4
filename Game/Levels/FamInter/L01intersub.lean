@@ -70,4 +70,3 @@ Los últimos dos pasos podrían haberse combinado en un único paso. En general,
 una prueba de `A ∈ F →  P A`, y aplicando esa prueba a `h1` tenemos que `h2 A h1` es una prueba de
 `P A`. Por ejemplo, si  `h1 : A ∈ F` y `h2 : ∀ S ∈ F, x ∈ S`, `h2 A h1` es una prueba de `x ∈ A`.
 "
-https://sites.google.com/view/introductiontotda/home?pli=1
