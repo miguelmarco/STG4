@@ -25,12 +25,15 @@ Si alguna expresión `t` es una prueba de una afirmación `P`, y `h` es un
 identificador que no está en uso, entonces `have h : P := t` agregará `h : P`
 a la lista de suposiciones.
 
-A veces quieres afirmar una declaración `P`, pero la prueba de `P` es demasiado
+Hay dos posibles formas de usar la táctica `have`:
+* A veces quieres afirmar una declaración `P`, pero la prueba de `P` es demasiado
 difícil para ser dada en una sola línea. En esa situación, simplemente puedes escribir
 `have h : P`. Por supuesto, aún debes justificar la afirmación de `P`, así que
 la prueba de `P` se convierte en tu objetivo inmediato.
 Una vez que se haya cerrado el objetivo de demostrar `P`, podrás volver a
 tu objetivo original, con `h : P` añadido a la lista de suposiciones.
+* Si escribes `h := t`, entonces Lean intentará deducir qué afirmación `P` es probada por `t`, y
+si puede hacerlo, directamente añadirá una nueva hipótesis `h : P`.
 "
 
 NewTactic «have»

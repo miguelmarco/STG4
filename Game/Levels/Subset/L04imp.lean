@@ -53,7 +53,6 @@ Statement {x : U} {A B C : Set U} (h1 : A ⊆ B) (h2 : x ∈ B → x ∈ C) : x 
   ahora puedes aplicar `h2` a `{h4}` para probar el objetivo."
   exact h2 h4
 
-
 Conclusion
 "
 En general, si tu objetivo es de la forma `P → Q`, la táctica `intro h` añadirá `h : P` a la lista

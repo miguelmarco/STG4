@@ -36,6 +36,8 @@ LemmaDoc fam_union_def as "fam_union_def" in "⋂₀⋃₀"
 
 NewLemma fam_union_def
 
+LemmaTab "⋂₀⋃₀"
+
 TacticDoc use
 "
 Si tu objetivo es `∃ x, P x`, donde `P x` representa alguna afirmación sobre `x`, y `a` es un posible

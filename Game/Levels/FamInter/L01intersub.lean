@@ -56,7 +56,8 @@ Statement (A : Set U) (F : Set (Set U)) (h1 : A ∈ F) : ⋂₀ F ⊆ A := by
   a cualquier conjunto--es decir, podemos proporcionar cualquier conjunto como `S` en `{h2}`.
   En particular, aplicándolo al conjunto `A`, concluimos que `A ∈ F → {x} ∈ A`.
   Para aplicar `{h2}` a `A`, símplemente escribimos `{h2}` seguido de `A`, con un espacio en medio.
-  Así, tu siguiente paso puede ser `have h3 : A ∈ F → {x} ∈ A := {h2} A`."
+  Así, tu siguiente paso puede ser `have h3 : A ∈ F → {x} ∈ A := {h2} A`. Puedes hacerlo también
+  con `have h3 := {h2} A`; Lean deducirá cual es la afirmación que prueba `{h2} A`."
   have h3 : A ∈ F → x ∈ A := h2 A
   Hint "Como también tenemos `h1 : A ∈ F`, puedes aplicar `{h3}` a `h1` para probar que `{x} ∈ A`.
   Esto significa que `{h3} h1` es una prueba del objetivo."

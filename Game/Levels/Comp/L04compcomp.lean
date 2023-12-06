@@ -61,13 +61,14 @@ Statement comp_comp (A : Set U) : Aᶜᶜ = A := by
   `{x} ∉ Aᶜ`.  Esto sugiere que la demostración por contradicción podría funcionar:
   si asumes lo contrario del objetivo, tal vez puedas llegar a contradicción probando `{x} ∈ Aᶜ`."
   by_contra h2
-  Hint "¿Puedes probar `{x} ∈ Aᶜ` a partir de tu nueva hipótesis `{h2} : {x} ∉ A`?  La táctica
-  `rewrite [comp_def] at {h2}` reescribirá `{x} ∈ Aᶜ` como `{x} ∉ A`, pero queremos ir en la otra
-  dirección, reescribiendo `{x} ∉ A` como `{x} ∈ Aᶜ`.  Para ello, usa
-  `rewrite [← comp_def] at {h2}`.  (Para introducir la flecha hacia la izquierda, teclea `\\l`.)"
-  rewrite [← comp_def] at h2
-  exact h1 h2
-  Hint "La prueba del segundo objetivo es parecida."
+  Hint "Como `{h1}` es una negación, aplicar `{h1}` a una prueba de `{x} ∈ Aᶜ` probaría el objetivo
+  `False`. Así que la táctica `apply {h1}` establecerá `{x} ∈ Aᶜ` como nuevo objetivo.
+  Esta técnica es útil siempre que hagas una prueba por contradicción y una de tus hipótesis sea
+  una negación."
+  apply h1
+  rewrite [comp_def]
+  exact h2
+  Hint "La prueba del segundo objetivo es similar."
   intro x h1
   rewrite [comp_def]
   by_contra h2
