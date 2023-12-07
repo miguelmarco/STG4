@@ -21,25 +21,21 @@ Statement (F : Set (Set U)) : (⋂₀ F)ᶜ = ⋃₀ {A | Aᶜ ∈ F} := by
   Branch
     rewrite [fam_union_def]
     by_contra h2
-    Hint (strict := true) "Como `{h1}` es una negación, una buena forma de llegar a una
-    contradicción sería ver lo contrario de `{h1}`. Como vimos en el nivel anterior, `apply {h1}`
-    cambiará el objetivo a `x ∈ ⋂₀ F`."
+    Hint (strict := true) "¿Qué afirmación te gustaría negar para completar la prueba? De nuevo,
+    puedes usar `apply` para cambiar el objetivo de manera que se llegue a una contradicción."
     apply h1
     rewrite [fam_inter_def]
     intro S h3
     by_contra h4
-    Hint "¿Qué afirmación te gustaría negar para completar la prueba? De nuevo, puedes usar `apply`
-    para cambiar el objetivo."
+    Hint "¿Qué afirmación te gustaría negar para completar la prueba?"
   by_contra h2
-  Hint (strict := true) "Como `{h1}` es una negación, una buena forma de llegar a una
-  contradicción sería ver lo contrario de `{h1}`. Como vimos en el nivel anterior, `apply {h1}`
-  cambiará el objetivo a `x ∈ ⋂₀ F`."
+  Hint (strict := true) "¿Qué afirmación te gustaría negar para completar la prueba?
+  Como vimos en el nivel anterior, `apply {h1}` cambiará el objetivo a `x ∈ ⋂₀ F`."
   apply h1
   rewrite [fam_inter_def]
   intro S h3
   by_contra h4
-  Hint "¿Qué afirmación te gustaría negar para completar la prueba? De nuevo, puedes usar `apply`
-  para cambiar el objetivo."
+  Hint "¿Qué afirmación te gustaría negar para completar la prueba?"
   apply h2
   use Sᶜ
   apply And.intro

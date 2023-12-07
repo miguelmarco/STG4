@@ -23,9 +23,9 @@ Statement (F : Set (Set U)) : (⋃₀ F)ᶜ = ⋂₀ {A | Aᶜ ∈ F} := by
   rewrite [comp_def] at h1
   rewrite [set_builder_def] at h2
   by_contra h3
-  Hint "Aplicando `{h1}` a una prueba de `{x} ∈ ⋃₀ F` probaría el objetivo `False`. Así que la
-  táctica `apply {h1}` cambiará el objetivo a `{x} ∈ ⋃₀ F`. Esta técnica puede ser útil siempre que
-  estés haciendo una demostración por reducción al absurdo."
+  Hint "Como`{h1}` es una negación, una forma natural de llegar a una contradicción sería
+  demostrar aquello que {h1} niega. Como vimos antes, `apply {h1}` cambiará el objetivo a
+  `{x} ∈ ⋃₀ F`."
   apply h1
   use Sᶜ
   apply And.intro h2
