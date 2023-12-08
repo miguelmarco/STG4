@@ -88,4 +88,9 @@ Alternativamente, si experimentas problemas/errores, también puedes abrir probl
 Dependency Intersecciones → Uniones
 Dependency FamInter → FamUnion
 
+/- Information for the tile on the servers landing page. -/
+Languages "Spanish"
+CaptionShort "" -- TODO: one catch phrase
+CaptionLong "" -- TODO: 2-3 sentenses what the game is about
+
 MakeGame
