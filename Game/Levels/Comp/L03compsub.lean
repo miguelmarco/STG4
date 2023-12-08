@@ -32,6 +32,8 @@ Para realizar múltiples reemplazos, uno después de otro, coloca una lista de p
 
 NewTactic rewrite
 
+TacticDoc rw "rw funciona igual que rewrite, pero además intenta cerrar el objetivo automáticamente."
+
 LemmaTab "ᶜ"
 
 LemmaDoc comp_sub_of_sub as "comp_sub_of_sub" in "ᶜ"
@@ -53,7 +55,7 @@ Statement comp_sub_of_sub {A B : Set U} (h1 : A ⊆ B) : Bᶜ ⊆ Aᶜ := by
 
   Análogamente, puedes escribir `rewrite [comp_def] at {h2}` para reescribir el significado de `{h2}`.
   Lean deducirá que, en ese caso, `comp_def` se tiene que aplicar a `{x}` y `B`."
-  rewrite [comp_def] at h2
+  rw [comp_def] at h2
   Hint (hidden := true) "Ahora tu objetivo es una negación, así que intenta demostrarlo por contradicción."
   by_contra h3
   Hint (hidden := true) "Esto debería recordarte el primer nivel de este mundo. Para obtener una

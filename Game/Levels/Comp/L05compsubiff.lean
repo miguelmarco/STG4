@@ -22,6 +22,9 @@ LemmaDoc Iff.intro as "Iff.intro" in "ᶜ"
 
 NewLemma Iff.intro
 
+TacticDoc constructor "Si el objetivo está formado por varias partes (como el caso de `P ∧ Q` o
+`P ↔ Q` por ejemplo), la táctica `constructor` lo separará en varios objetivos."
+
 /-- Suppose $A$ and $B$ are sets.  Then $A \subseteq B$ if and only if $B^c \subseteq A^c$. -/
 Statement (A B : Set U) : A ⊆ B ↔ Bᶜ ⊆ Aᶜ := by
   Hint "Para la prueba en este nivel, `apply Iff.intro` creará los objetivos `A ⊆ B → Bᶜ ⊆ Aᶜ`
