@@ -91,6 +91,6 @@ Dependency FamInter → FamUnion
 /- Information for the tile on the servers landing page. -/
 Languages "Spanish"
 CaptionShort "Un juego sobre teoría de conjuntos" -- TODO: one catch phrase
-CaptionLong "En este juego aprenderás lo básico sobre al manejo de conjuntos en Lean" -- TODO: 2-3 sentenses what the game is about
+CaptionLong "En este juego aprenderás lo básico sobre el manejo de conjuntos en Lean" -- TODO: 2-3 sentenses what the game is about
 
 MakeGame

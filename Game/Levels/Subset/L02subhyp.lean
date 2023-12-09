@@ -13,9 +13,9 @@ todo elemento de `A` es también un elemento de `B`. Esto lo denotamos como `A �
 (Para introducir el símbolo `⊆`, teclea `\\sub`, seguido por un espacio.)
 
 Si tienes `h1 : A ⊆ B`, entonces `h1` is una prueba de que, si algo es un elemento de `A`,
-tambiñen es un elemento de `B`. Así, si tienes también `h2 : x ∈ A`,
+también es un elemento de `B`. Así, si tienes también `h2 : x ∈ A`,
 puedes aplicar `h1` a `h2` para concluir que `x ∈ B`.  Para aplicar `h1` a `h2`,
-símplemente excribe `h1` seguido de `h2`, con un espacio en medio. Así, en esta situación,
+símplemente escribe `h1` seguido de `h2`, con un espacio en medio. Así, en esta situación,
 `h1 h2` es una prueba de `x ∈ B`.
 
 Intenta completar este nivel. Si necesitas ayuda, pulsa en
