@@ -4,14 +4,14 @@ variable {U : Type}
 
 World "FamCombo"
 Level 6
-Title "A union intersected with the complement of an intersection"
+Title "Una unión intersecada con el complemento de una intersección"
 
 Introduction
 "
-This time we'll study the intersection of `(⋃₀ F)` and `(⋂₀ G)ᶜ`.
+Ahora estudiaremos la intersección de `(⋃₀ F)` y `(⋂₀ G)ᶜ`.
 "
 
-/-- Suppose $F$ and $G$ are families of sets.  Then $(\bigcup F) \cap (\bigcap G)^c \subseteq
+/-- Supón que $F$ y $G$ son familias de conjuntos. Entonces $(\bigcup F) \cap (\bigcap G)^c \subseteq
 \bigcup \{S \mid \exists A \in F, \exists B \in G, S = A \cap B^c\}$.-/
 Statement (F G : Set (Set U)) : (⋃₀ F) ∩ (⋂₀ G)ᶜ ⊆ ⋃₀ {S | ∃ A ∈ F, ∃ B ∈ G, S = A ∩ Bᶜ} := by
   intro x h1

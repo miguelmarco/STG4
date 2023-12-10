@@ -4,15 +4,15 @@ variable {U : Type}
 
 World "FamCombo"
 Level 5
-Title "A subset of a union intersected with the complement of another"
+Title "Un subconjunto de una unión intersecada con el complemento de otra"
 
 Introduction
 "
-What happens if the subset statement in the last level is reversed?
+¿Qué ocurre si tomamos el contenido inverso en el nivel anterior?
 "
 
-/-- Suppose $F$ and $G$ are families of sets and $\bigcup (F \cap G^c) \subseteq (\bigcup F)
-\cap (\bigcup G)^c$.  Then $(\bigcup F) \cap (\bigcup G) \subseteq \bigcup (F \cap G)$.-/
+/-- Supón que $F$ y $G$ son familias de conjuntos y $\bigcup (F \cap G^c) \subseteq (\bigcup F)
+\cap (\bigcup G)^c$.  Entonces $(\bigcup F) \cap (\bigcup G) \subseteq \bigcup (F \cap G)$.-/
 Statement (F G : Set (Set U)) (h1 : ⋃₀ (F ∩ Gᶜ) ⊆ (⋃₀ F) ∩ (⋃₀ G)ᶜ) :
     (⋃₀ F) ∩ (⋃₀ G) ⊆ ⋃₀ (F ∩ G) := by
   intro x h2

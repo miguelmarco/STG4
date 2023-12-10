@@ -22,8 +22,8 @@ Statement (F : Set (Set U)) : (⋃₀ F)ᶜ = ⋂₀ {A | Aᶜ ∈ F} := by
   intro S h2
   rewrite [comp_def] at h1
   rewrite [set_builder_def] at h2
-  Hint "Sometimes, if you don't see what else to do, proof by contradiction is a good
-  thing to try, even if your goal is not a negative statement."
+  Hint "A veces, si no ves qué puedes hacer, puedes intentar una prueba por reducción al absurdo,
+  incluso si tu objetivo no es una negación."
   by_contra h3
   Hint "Como`{h1}` es una negación, una forma natural de llegar a una contradicción sería
   demostrar aquello que {h1} niega. Como vimos antes, `apply {h1}` cambiará el objetivo a

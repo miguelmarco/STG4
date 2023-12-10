@@ -4,32 +4,31 @@ variable {U : Type}
 
 World "FamCombo"
 Level 7
-Title "A set that must be a singleton"
+Title "Un conjunto con un único elemento"
 
 Introduction
 "
-The notation `{a}` denotes a set whose only element is `a`; such a set is called a *singleton*
-set.  The theorem `single_def` expresses the definition of singleton sets: `single_def x a` is
-a proof of the statement `x ∈ {a} ↔ x = a`.
+Con `{a}` denotamos un conjunto cuyo único elemento es `a`. El teorema `single_def` expresa la
+definición de estos conjuntos: `single_def x a` es una prueba de `x ∈ {a} ↔ x = a`.
 "
 
 lemma single_def (x a : U) : x ∈ {a} ↔ x = a := by rfl
 
 LemmaDoc single_def as "single_def" in "{}"
-"For any `x` and `a`, `single_def x a` is a proof of the statement `x ∈ {a} ↔ x = a`."
+"Dados `x` y `a`, `single_def x a` es una prueba de `x ∈ {a} ↔ x = a`."
 
 NewLemma single_def
 
 LemmaTab "{}"
 
-/-- Suppose $A$ is a set, and for every family of sets $F$, if $\bigcup F = A$ then $A \in F$.
-Then $A$ must be a singleton set.-/
+/-- Supón que $A$ es un conjunto, y para cada familia $F$ tal que $\bigcup F = A$, se cumple que
+$A \in F$. Entonces $A$ debe tener un único elemento.-/
 Statement (A : Set U) (h1 : ∀ F, (⋃₀ F = A → A ∈ F)) : ∃ x, A = {x} := by
-  Hint (strict := true) "Start with `have h2 := h1 \{S | ...}`.  The hard part is figuring out
-  how to fill in the `...`."
-  Hint (strict := true) (hidden := true) "You need to apply h1 to a family of sets with two
-  properties: the union of the family must be `A`, and knowing that `A` belongs to the
-  family must help you prove that `A` is a singleton."
+  Hint (strict := true) "Empieza con `have h2 := h1 \{S | ...}`. La parte difícil es darte cuenta de
+  qué debes poner en  `...`."
+  Hint (strict := true) (hidden := true) "Tienes que aplicar h1 a una familia de conjuntos que
+  cumpla dos condiciones: la unión de la familia debe ser `A`, y saber que `A` pertenece a la
+  familia debe ayudarte a probar que `A` está formado por un único elemento."
   have h2 := h1 {S | ∃ x ∈ A, S = {x}}
   have h3 : ⋃₀ {S | ∃ x ∈ A, S = {x}} = A
   ext x
