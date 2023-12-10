@@ -37,6 +37,11 @@ Statement (A : Set U) : ∃ S, S ⊆ A := by
   Hint (strict := true) "Tu objetivo afirma que existe un subcojunto de `A`. ¿Se te ocurre cual puede ser?"
   Hint (strict := true) (hidden := true) "Recuerda que `sub_ref A` es una pruebaa de `A ⊆ A`. Así
   que puedes empezar tu prueba con `have h : A ⊆ A := sub_ref A`."
+  Branch
+    use ∅
+    Hint "Aunque `∅` parece una elección razonable como conjunto contenido en `A`, será difícil
+    completar la prueba usando sólo los métodos que hemos visto hasta ahora en el juego.
+    Vuelve atrás, e intenta com otra elección."
   have h : A ⊆ A := sub_ref A
   Hint "Ahora puedes usar `Exists.intro` para completar la prueba."
   Hint (hidden := true) "Exists.intro A {h}` demuestra el objetivo."

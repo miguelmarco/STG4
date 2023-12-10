@@ -41,10 +41,10 @@ Statement (A : Set U) (F : Set (Set U)) : A ∩ (⋃₀ F) = ⋃₀ {B | ∃ S �
   Puedes hacer eso con `have {h1}r := {h1}.right`."
   have h2 : x ∈ ⋃₀ F := h1.right
   rewrite [fam_union_def] at h2
-  cases' h2 with S hS
+  obtain ⟨S, hS⟩ := h2
   rewrite [fam_union_def]
   Hint "Tu objetivo es una afirmación de existencia. ¿Ves qué valor puedes usar como testigo?"
-  Hint (hidden := true) "Intenta `apply Exists.intro (A ∩ S)` o `use A ∩ S`."
+  Hint (hidden := true) "Intenta `apply Exists.intro (A ∩ {S})` o `use A ∩ {S}`."
   use A ∩ S
   apply And.intro
   Hint "Puedes usar `rewrite [set_builder_def]` para reescribir el significado del objetivo."
@@ -55,16 +55,16 @@ Statement (A : Set U) (F : Set (Set U)) : A ∩ (⋃₀ F) = ⋃₀ {B | ∃ S �
   exact And.intro h1.left hS.right
   intro h1
   Hint (strict := true) "De nuevo, extrae las consecuencias de `{h1}` antes de seguir."
-  cases' h1 with B h1
-  Hint (strict := true) "Puedes separar la primera mitad de `{h1}` con `have {h1}l := {h1}.left`."
-  have h2 := h1.left
-  rewrite [set_builder_def] at h2
-  cases' h2 with S hS
+  obtain ⟨B, hB⟩ := h1
+  Hint (strict := true) "Puedes separar la primera mitad de `{hB}` con `have {hB}l := {hB}.left`."
+  have hBl := hB.left
+  rewrite [set_builder_def] at hBl
+  obtain ⟨S, hS⟩ := hBl
   Hint (hidden := true) "Sabes que `{x} ∈ {B}` y `{B} = A ∩ {S}`.  Así que puedes usar `rewrite`
   para obtener `{x} ∈ A ∩ {S}`."
   rewrite [inter_def]
-  rewrite [hS.right, inter_def] at h1
-  apply And.intro h1.right.left
+  rewrite [hS.right, inter_def] at hB
+  apply And.intro hB.right.left
   rewrite [fam_union_def]
   use S
-  exact And.intro hS.left h1.right.right
+  exact And.intro hS.left hB.right.right

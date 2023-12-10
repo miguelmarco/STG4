@@ -22,6 +22,8 @@ Statement (F : Set (Set U)) : (⋃₀ F)ᶜ = ⋂₀ {A | Aᶜ ∈ F} := by
   intro S h2
   rewrite [comp_def] at h1
   rewrite [set_builder_def] at h2
+  Hint "Sometimes, if you don't see what else to do, proof by contradiction is a good
+  thing to try, even if your goal is not a negative statement."
   by_contra h3
   Hint "Como`{h1}` es una negación, una forma natural de llegar a una contradicción sería
   demostrar aquello que {h1} niega. Como vimos antes, `apply {h1}` cambiará el objetivo a
@@ -35,13 +37,13 @@ Statement (F : Set (Set U)) : (⋃₀ F)ᶜ = ⋂₀ {A | Aᶜ ∈ F} := by
   rewrite [comp_def]
   by_contra h2
   rewrite [fam_union_def] at h2
-  cases' h2 with S hS
+  obtain ⟨S, hS⟩ := h2
   rewrite [fam_inter_def] at h1
   Hint (strict := true) "¿A qué conjunto puedes aplicar {h1}?"
   have h3 : Sᶜ ∈ {A | Aᶜ ∈ F}
   rewrite [set_builder_def]
   rewrite [comp_comp]
   exact hS.left
-  have h4 := h1 Sᶜ h3
+  have h4 : x ∈ Sᶜ := h1 Sᶜ h3
   rewrite [comp_def] at h4
   exact h4 hS.right

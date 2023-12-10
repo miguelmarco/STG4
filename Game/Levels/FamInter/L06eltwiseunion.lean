@@ -42,13 +42,14 @@ Statement (A : Set U) (F G : Set (Set U)) (h1 : ∀ S ∈ F, A ∪ S ∈ G) : �
   intro S h4
   Hint (strict := true) (hidden := true) "Ahora usa `h1`."
   have h5 : A ∪ S ∈ G := h1 S h4
-  Hint (strict := true) (hidden := true) "Aún no has usado `h2`. Si no ves cómo usarlo, escribe su
+  Hint (strict := true) (hidden := true) "Aún no has usado `{h2}`. Si no ves cómo usarlo, escribe su
   definición."
   rewrite [fam_inter_def] at h2
-  Hint (strict := true) (hidden := true) "Date cuenta de que puedes aplicar `h2` a `(A ∪ {S})`."
+  Hint (strict := true) (hidden := true) "Date cuenta de que puedes aplicar `{h2}` a `(A ∪ {S})`."
   have h6 : x ∈ A ∪ S := h2 (A ∪ S) h5
   rewrite [union_def] at h6
   cases' h6 with hA2 hS
+  Hint (hidden := true) "Notice that you have contradictory assumptions."
   by_contra h6
   exact hA hA2
   exact hS

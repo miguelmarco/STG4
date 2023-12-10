@@ -18,7 +18,7 @@ Statement (F G : Set (Set U)) : (⋃₀ F) ∩ (⋃₀ G)ᶜ ⊆ ⋃₀ (F ∩ G
   rewrite [inter_def] at h1
   have h1l := h1.left
   rewrite [fam_union_def] at h1l
-  cases' h1l with S hS
+  obtain ⟨S, hS⟩ := h1l
   rewrite [fam_union_def]
   use S
   apply And.intro

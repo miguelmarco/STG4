@@ -11,7 +11,22 @@ Introduction
 En este nivel tenemos dos familias de conjuntos, `F` y `G`, con `F ⊆ G`. En el mundo de la
 intersección de familias, probaste que en esta situación, `⋂₀ G ⊆ ⋂₀ F`. En este nivel veremos que
 con uniones de familias, se tiene la inclusión en sentido contrario: `⋃₀ F ⊆ ⋃₀ G`.
+
+Necesitaremos una nueva táctica para esta prueba. Una hipótesis de la forma `h : ∃ x, P x` nos dice
+que existe un objeto con una cierta propiedad. Si tenemos una hipótesis así, puede ser útil
+introducir un nombre para ese objeto. Puedes hacerlo con la táctica `obtain`. Si escribes
+`obtain ⟨w, hw⟩ := h`, Lean introducirá un nuevo objeto `w` y una nueva hipótesis
+`hw : P w`. Así, el objeto `w` es un testigo de la afirmación de existencia `h`. Fíjate en que en la
+táctica `obtain`, `w` y `hw` deben ir entre paréntesis angulados: `⟨ ⟩`. Puedes introducir estos
+símbolos tecleando `\\<` y `\\>` (o `\\langle` y `\\rangle`).
 "
+
+TacticDoc obtain
+"Si tienes una hipótesis `h : ∃ x, P x`, la táctica `obtain ⟨w, hw⟩ := h` introducirá un nuevo objeto
+`w` y una hipótesis `hw : P w`. Para introducir los paréntesis angulados `⟨ ⟩`, teclea `\\<` y `\\>`
+(o `\\langle` t `\\rangle`)."
+
+NewTactic obtain
 
 /-- Supón que $F$ y $G$ son familias de conjuntos, y $F \subseteq G$.
 Entonces $\bigcup F \subseteq \bigcup G$. -/
@@ -20,12 +35,10 @@ Statement (F G : Set (Set U)) (h1 : F ⊆ G) : ⋃₀ F ⊆ ⋃₀ G := by
   rewrite [fam_union_def]
   rewrite [fam_union_def] at h2
   Hint "La hipótesis {h2} afirma que existe un conjunto `S` tal que `S ∈ F ∧ {x} ∈ S`.
-  Ayudaría introducir un nombre para ese conjunto. Puedes hacer eso con la táctica `cases'`.
-  Si escribes `cases' {h2} with B hB`, Lean introducirá un objeto `B` y una nueva hipótesis
-  `hB : B ∈ F ∧ {x} ∈ B`. (Puede parecer extraño usar la táctica `cases'` en esta situación,
-  ya que no estamos en una demostración por casos. En cualquier caso, `cases'` es la táctica que
-  hace lo que necesitamos.)"
-  cases' h2 with B hB
+  Así que `obtain ⟨B, hB⟩ := {h2}` introducirá un nuevo objeto `B` y una hipótesis
+  `hB : B ∈ F ∧ {x} ∈ B. Una vez hemos introducido el testigo `B` la hipótesis `{h2}`
+  resulta redundante, así que se elimina."
+  obtain ⟨B, hB⟩ := h2
   Hint (hidden := true) "¿Ves por qué `B` es el testigo que hay que usar para `S` en el objetivo? Tu
   próximo paso puede ser `apply Exists.intro B` o `use B`."
   apply Exists.intro B
