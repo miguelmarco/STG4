@@ -42,6 +42,6 @@ Statement (A B C : Set U) (h1 : A ⊆ C) (h2 : B ⊆ C) : A ∪ B ⊆ C := by
 
 Conclusion
 "
-Notar que also también tiene una táctica `cases`, pero su sintaxis en un poco más complicada.
+Notar que también tiene una táctica `cases`, pero su sintaxis en un poco más complicada.
 Por eso hemos optado por usar la táctica `cases'`.
 "

@@ -9,6 +9,6 @@ Title "Mundo combinado"
 
 Introduction
 "
-En este mundo, probaras teoremas que involucran complementarios, intersecciones y uniones.
+En este mundo, probarás teoremas que involucran complementarios, intersecciones y uniones.
 La mayor parte del tiempo tendrás que hacerlo sin ayuda.
 "

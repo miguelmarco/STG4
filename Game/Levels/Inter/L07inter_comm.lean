@@ -30,5 +30,5 @@ NewLemma inter_comm
 
 Conclusion
 "
-Probaremos una última propiedad de las intersecciones en el sighu
+Probaremos una última propiedad de las intersecciones en el siguiente nivel.
 "
