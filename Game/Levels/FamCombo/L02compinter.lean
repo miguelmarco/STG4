@@ -11,7 +11,7 @@ Introduction
 Ya habrás sospechado que hay una versión para interseciones de familias del teorema visto en el
 nivel anterior.
 
-Si te atascas, piensq que puedes usar la demostración por reducción al absurdo.
+Si te atascas, piensa que puedes usar la demostración por reducción al absurdo.
 "
 
 /-- Dada una familia de conjuntos $F$, $(\bigcap F)^c = \bigcup \{A \mid A^c \in F\}$. -/
